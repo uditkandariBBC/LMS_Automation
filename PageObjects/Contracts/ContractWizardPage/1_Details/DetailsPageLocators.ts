@@ -1,0 +1,16 @@
+export const detailsLocator = {
+  contractTypeId: "ContractTypeGUID",
+  contractStageId: "ContractStatusGUID",
+  contractNoId: "#ContractNumber",
+  autoGenerateContractNoCheckboxId: "OverrideCN",
+  alternateContractId: "#AlternateIdentifier",
+  licensorId: "EntityGUID",
+  licenseeId: "CompanyGUID",
+  agentId: "AgentGUID",
+  dealMemoExpDateId: "#ExpirationDate",
+  startDateId: "#StartDate",
+  endDateId: "#EndDate",
+  sellOffDaysId: "#SellOffDays",
+  contractCurrencyId: "CurrencyGUID",
+  exchangeServiceId: "ExchangeGUID",
+};

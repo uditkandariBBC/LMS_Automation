@@ -1,0 +1,48 @@
+<div class="col-sm-4">
+                            <div class="form-group">
+                                <label for="ContractTypeGUID" class="control-label">Contract Type</label>
+                                <div class="select2-container customselect form-control required" id="s2id_ContractTypeGUID"><a href="javascript:void(0)" class="select2-choice" tabindex="-1">   <span class="select2-chosen" id="select2-chosen-1">Cross Recoupable/Royalty Only</span><abbr class="select2-search-choice-close"></abbr>   <span class="select2-arrow" role="presentation"><b role="presentation"></b></span></a><label for="s2id_autogen1" class="select2-offscreen">Contract Type</label><input class="select2-focusser select2-offscreen" type="text" aria-haspopup="true" role="button" aria-labelledby="select2-chosen-1" id="s2id_autogen1"></div><select name="ContractTypeGUID" id="ContractTypeGUID" class="customselect form-control required select2-offscreen" tabindex="-1" title="Contract Type">
+                                        <option value="" data-agent="False"></option>
+                                            <option value="3cf244f3-ba7b-401f-9571-e41a523a22cc" data-agent="True" data-pre="MD" data-hideselloffdays="False">Cross Recoupable/Royalty Only</option>
+                                            <option value="061e133d-6062-45de-a09f-97358d1d6498" data-agent="True" data-pre="MD" data-hideselloffdays="False">Non-Cross Recoupable</option>
+                                            <option value="43a1ef63-41ab-4a0e-9663-24ed6b6c2b89" data-agent="True" data-pre="MD" data-hideselloffdays="False">Flat Fee</option>
+                                            <option value="279bf938-174d-4bf6-9912-94eaf92a6505" data-agent="True" data-pre="AGR" data-hideselloffdays="True">Agent Representation Agreement</option>
+                                </select>
+                            </div>
+                        </div>
+
+<div class="col-sm-4">
+                            <div class="form-group">
+                                <label for="ContractStatusGUID" class="control-label">Contract Stage</label>
+                                    <div class="select2-container customselect form-control required" id="s2id_ContractStatusGUID"><a href="javascript:void(0)" class="select2-choice select2-default" tabindex="-1">   <span class="select2-chosen" id="select2-chosen-2"></span><abbr class="select2-search-choice-close"></abbr>   <span class="select2-arrow" role="presentation"><b role="presentation"></b></span></a><label for="s2id_autogen2" class="select2-offscreen">Contract Stage</label><input class="select2-focusser select2-offscreen" type="text" aria-haspopup="true" role="button" aria-labelledby="select2-chosen-2" id="s2id_autogen2"></div><select name="ContractStatusGUID" id="ContractStatusGUID" class="customselect form-control required select2-offscreen" tabindex="-1" title="Contract Stage">
+                                        <option value=""></option>
+                                                    <option value="44e72dbc-4513-4ef0-93b7-bbe2095a8f03">Draft</option>
+                                                    <option value="746a33c6-a1cc-4d88-be7e-a410c1fe9832">Requested</option>
+                                                    <option value="cba4112b-4ad7-42aa-a329-3744700522e7">Terms Agreed, Proceed to Credit Check</option>
+                                                    <option value="ca520d58-de04-4710-820e-c520b33cfe20">Ready for Signature</option>
+                                                    <option value="243aaf5a-3859-4037-8c6b-6b24a0e06ee9">Signed</option>
+                                    </select>
+                            </div>
+                        </div>               
+                        class BasePage {
+  // Method to select an option in a dropdown menu using search
+  async selectDropdownOptionWithSearch(page: Page, dropdownSelector: string, searchValue: string, optionValue: string) {
+    // Find the dropdown element by its selector
+    const dropdownElement = await page.locator(dropdownSelector);
+
+    // Find the search input element within the dropdown container
+    const searchInput = dropdownElement.locator('input');
+
+    // Type the search value into the search input
+    await searchInput.fill(searchValue);
+
+    // Wait for the search results to update
+    await page.waitForResponse((response) => response.url().includes('search-api'));
+
+    // Find the option element with the specified value
+    const optionElement = await dropdownElement.locator(`option[value="${optionValue}"]`);
+
+    // Select the option element
+    await optionElement.click();
+  }
+}         

@@ -1,0 +1,22 @@
+{
+  "details": {
+    "contractType": "Cross Recoupable/Royalty Only",
+    "contractStages": "Draft",
+    "contractNo": "",
+    "autogenerateContractNo": true,
+    "alternateContractID": "automation_test_003",
+    "licensor": "BBCS Distribution Ltd GB02",
+    "licensee": "Claudio Reig, S.L 1508834",
+    "primaryAgent": "France Televisions Distribution 1504209_4500574",
+    "memoExpirationDate": "31/03/2024",
+    "startDate": "01/01/2023",
+    "endDate": "31/03/2024",
+    "sellOffDays": "91",
+    "contractCurrency": "GBP - United Kingdom Pound",
+    "exchangeService": "No Exchange Rates"
+  },
+  "rights": {
+    "contractRights": "Full",
+    "contractRightsDetails": "Full access to the contract"
+  }
+}
