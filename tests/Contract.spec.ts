@@ -1,4 +1,4 @@
-import test, { expect } from "../base/baseTest";
+import test, { expect } from "../base/Basetest";
 test.describe("Contract Tests", () => {
   test("Test Contract Creation Functionality", async ({
     page,
@@ -21,5 +21,6 @@ test.describe("Contract Tests", () => {
     await dashboardPage.navigateToContractPage();
     await contractPage.searchContract("md00085");
     await termsPage.editInContractWizard("md00085");
+    // await rightsPage.addRights();
   });
 });
