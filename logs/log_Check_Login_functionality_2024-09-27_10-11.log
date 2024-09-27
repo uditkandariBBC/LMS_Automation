@@ -1,0 +1,23 @@
+2024-09-27 15:41:22 info: Starting test: LoginPage
+2024-09-27 15:41:22 info: Navigating to RM-512 login page
+2024-09-27 15:41:22 info: Performing login
+2024-09-27 15:41:22 info: Filling in username: udit.kandari@bbc.com
+2024-09-27 15:41:22 info: Filling input field "//input[@id='email-address']" with value "udit.kandari@bbc.com".
+2024-09-27 15:41:26 info: Filled input field "//input[@id='email-address']" successfully.
+2024-09-27 15:41:26 info: Filling in password
+2024-09-27 15:41:26 info: Filling input field "//input[@id='password']" with value "Tmittmif#@5248360".
+2024-09-27 15:41:26 info: Filled input field "//input[@id='password']" successfully.
+2024-09-27 15:41:26 info: Agreeing to terms of service
+2024-09-27 15:41:26 info: Checkbox "//input[@id='agree']" checked successfully.
+2024-09-27 15:41:26 info: Submitting login form
+2024-09-27 15:41:26 info: Attempting to click on element "//input[@id='submit-button']".
+2024-09-27 15:41:26 info: Waiting for element "//input[@id='submit-button']" to be visible with timeout 10000ms.
+2024-09-27 15:41:26 info: Element "//input[@id='submit-button']" is visible.
+2024-09-27 15:41:26 info: Clicked on element "//input[@id='submit-button']" successfully.
+2024-09-27 15:41:26 info: Login performed successfully
+2024-09-27 15:41:26 info: Verifying dashboard page title
+2024-09-27 15:41:26 info: Waiting for dashboard visibility
+2024-09-27 15:41:26 info: Waiting for element "//div[@id="GridstackDashboard"]" to be visible with timeout 10000ms.
+2024-09-27 15:41:31 info: Element "//div[@id="GridstackDashboard"]" is visible.
+2024-09-27 15:41:31 info: Page title: Dashboard | MediaBox Royalty Management
+2024-09-27 15:41:31 info: Finished test

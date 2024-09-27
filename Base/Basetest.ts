@@ -77,12 +77,15 @@ const test = baseTest.extend<PageObjects>({
 
 // hooks as fixtures
 test.beforeEach(async ({ loginPage }) => {
-  logger.info("Starting test: " + loginPage.constructor.name);
+  logger.info(`Starting test: ${loginPage.constructor.name}`);
+  logger.debug("Initializing login page for test setup.");
   await loginPage.performLogin();
+  logger.debug("Login successful and test setup completed.");
 });
 
 test.afterEach(async ({}) => {
   logger.info("Finished test");
+  logger.debug("Tearing down test context and cleaning up.");
 });
 
 // export default and name export so spec files can use it

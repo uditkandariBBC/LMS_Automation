@@ -1,0 +1,22 @@
+2024-09-27 15:36:24 info: Starting test: LoginPage
+2024-09-27 15:36:24 info: Navigating to RM-512 login page
+2024-09-27 15:36:24 info: Performing login
+2024-09-27 15:36:24 info: Filling in username: udit.kandari@bbc.com
+2024-09-27 15:36:24 info: Filling input field "//input[@id='email-address']" with value "udit.kandari@bbc.com".
+2024-09-27 15:36:27 info: Filled input field "//input[@id='email-address']" successfully.
+2024-09-27 15:36:27 info: Filling in password
+2024-09-27 15:36:27 info: Filling input field "//input[@id='password']" with value "Manjusona@#9412".
+2024-09-27 15:36:27 info: Filled input field "//input[@id='password']" successfully.
+2024-09-27 15:36:27 info: Agreeing to terms of service
+2024-09-27 15:36:29 info: Checkbox "//input[@id='agree']" checked successfully.
+2024-09-27 15:36:29 info: Submitting login form
+2024-09-27 15:36:29 info: Attempting to click on element "//input[@id='submit-button']".
+2024-09-27 15:36:29 info: Waiting for element "//input[@id='submit-button']" to be visible with timeout 10000ms.
+2024-09-27 15:36:29 info: Element "//input[@id='submit-button']" is visible.
+2024-09-27 15:36:29 info: Clicked on element "//input[@id='submit-button']" successfully.
+2024-09-27 15:36:29 info: Login performed successfully
+2024-09-27 15:36:29 info: Verifying dashboard page title
+2024-09-27 15:36:29 info: Waiting for dashboard visibility
+2024-09-27 15:36:29 info: Waiting for element "//div[@id="GridstackDashboard"]" to be visible with timeout 10000ms.
+2024-09-27 15:36:39 error: Timeout while waiting for element "//div[@id="GridstackDashboard"]" to be visible.
+2024-09-27 15:36:40 info: Finished test

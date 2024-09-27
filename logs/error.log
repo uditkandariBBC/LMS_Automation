@@ -1,0 +1,11 @@
+2024-09-26 19:04:35 error: Error editing contract wizard for contract "md00085a": locator.waitFor: Test timeout of 30000ms exceeded.
+Call log:
+  [2m- waiting for locator('//h1[starts-with(text(), "Contract No.")]') to be visible[22m
+
+2024-09-27 14:32:59 error: Timeout while waiting for element "//div[@id="GridstackDashboard"]" to be visible.
+2024-09-27 14:37:58 error: Timeout while waiting for element "//div[@id="GridstackDashboard"]" to be visible.
+2024-09-27 14:41:48 error: Timeout while waiting for element "//div[@id="GridstackDashboard"]" to be visible.
+2024-09-27 15:27:32 error: Timeout while waiting for element "//div[@id="GridstackDashboard"]" to be visible.
+2024-09-27 15:29:39 error: Timeout while waiting for element "//div[@id="GridstackDashboard"]" to be visible.
+2024-09-27 15:36:39 error: Timeout while waiting for element "//div[@id="GridstackDashboard"]" to be visible.
+2024-09-27 15:38:36 error: Timeout while waiting for element "//div[@id="GridstackDashboard"]" to be visible.
