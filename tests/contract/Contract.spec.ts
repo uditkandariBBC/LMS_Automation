@@ -19,7 +19,7 @@ test.describe("Contract Tests", () => {
     termsPage,
   }) => {
     await dashboardPage.navigateToContractPage();
-    await contractPage.searchContract("md00085a");
+    await contractPage.searchContract("md00085");
     await termsPage.editInContractWizard("md00085");
     // await rightsPage.addRights();
   });
