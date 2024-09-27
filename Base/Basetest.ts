@@ -13,10 +13,17 @@ import { transports } from "winston";
 import * as fs from "fs";
 import * as path from "path";
 
-// Ensure the logs directory exists
-const logDir = "logs";
-if (!fs.existsSync(logDir)) {
-  fs.mkdirSync(logDir);
+// Ensure the base logs directory exists
+const baseLogDir = "logs";
+if (!fs.existsSync(baseLogDir)) {
+  fs.mkdirSync(baseLogDir);
+}
+
+// Create a new folder for each day
+const currentDate = new Date().toISOString().split("T")[0]; // Get current date in YYYY-MM-DD format
+const dailyLogDir = path.join(baseLogDir, currentDate);
+if (!fs.existsSync(dailyLogDir)) {
+  fs.mkdirSync(dailyLogDir);
 }
 
 // declaring the objects type for autocompletion
@@ -31,6 +38,7 @@ interface PageObjects {
   termsPage: TermsPage;
   rightsPage: RightsPage;
 }
+
 // initializing all the page objects you have in your app and import them as fixture in spec file
 const test = baseTest.extend<PageObjects>({
   commonScenarioPage: async ({ page }, use, testInfo) => {
@@ -41,7 +49,7 @@ const test = baseTest.extend<PageObjects>({
       .replace("T", "_")
       .slice(0, 16); // Include date, hours, and minutes
     const logFileName = path.join(
-      logDir,
+      dailyLogDir,
       `log_${testInfo.title.replace(/[^a-zA-Z0-9]/g, "_")}_${timestamp}.log`
     );
     const fileTransport = new transports.File({ filename: logFileName });

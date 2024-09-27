@@ -1,19 +1,22 @@
 import { createLogger, format, transports } from "winston";
 import * as path from "path";
 import * as fs from "fs";
+import "winston-daily-rotate-file";
 
-// Ensure the logs directory exists
-const logDir = "logs";
-if (!fs.existsSync(logDir)) {
-  fs.mkdirSync(logDir);
+// Ensure the base logs directory exists
+const baseLogDir = "logs";
+if (!fs.existsSync(baseLogDir)) {
+  fs.mkdirSync(baseLogDir);
 }
 
-// Create different transport files for different log levels
-const infoLog = path.join(logDir, "info.log");
-const errorLog = path.join(logDir, "error.log");
-const debugLog = path.join(logDir, "debug.log");
+// Create a new folder for each day
+const currentDate = new Date().toISOString().split("T")[0]; // Get current date in YYYY-MM-DD format
+const dailyLogDir = path.join(baseLogDir, currentDate);
+if (!fs.existsSync(dailyLogDir)) {
+  fs.mkdirSync(dailyLogDir);
+}
 
-// Create the logger with multiple levels
+// Create the logger with multiple levels and log rotation
 const logger = createLogger({
   levels: {
     error: 0,
@@ -40,17 +43,23 @@ const logger = createLogger({
         )
       ),
     }),
-    new transports.File({
-      filename: errorLog,
+    new transports.DailyRotateFile({
+      filename: path.join(dailyLogDir, "error-%DATE%.log"),
+      datePattern: "YYYY-MM-DD",
       level: "error", // File logs only 'error' level messages
+      maxFiles: "14d", // Keep logs for 14 days
     }),
-    new transports.File({
-      filename: infoLog,
+    new transports.DailyRotateFile({
+      filename: path.join(dailyLogDir, "info-%DATE%.log"),
+      datePattern: "YYYY-MM-DD",
       level: "info", // File logs 'info' and above
+      maxFiles: "14d", // Keep logs for 14 days
     }),
-    new transports.File({
-      filename: debugLog,
+    new transports.DailyRotateFile({
+      filename: path.join(dailyLogDir, "debug-%DATE%.log"),
+      datePattern: "YYYY-MM-DD",
       level: "debug", // File logs 'debug' and above
+      maxFiles: "14d", // Keep logs for 14 days
     }),
   ],
 });
