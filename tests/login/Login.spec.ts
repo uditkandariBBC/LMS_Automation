@@ -1,4 +1,4 @@
-import test, { expect } from "../base/baseTest";
+import test, { expect } from "../../Base/BaseTest";
 
 test.describe("Login Tests", () => {
   test("Check Login functionality", async ({

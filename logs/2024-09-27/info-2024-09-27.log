@@ -1,0 +1,436 @@
+2024-09-27 19:23:46 info: Starting test: LoginPage
+2024-09-27 19:23:46 info: Navigating to RM-512 login page
+2024-09-27 19:23:46 info: Performing login
+2024-09-27 19:23:46 info: Filling in username: udit.kandari@bbc.com
+2024-09-27 19:23:46 info: Filling input field "//input[@id='email-address']" with value "udit.kandari@bbc.com".
+2024-09-27 19:23:46 info: Starting test: LoginPage
+2024-09-27 19:23:46 info: Navigating to RM-512 login page
+2024-09-27 19:23:46 info: Performing login
+2024-09-27 19:23:46 info: Filling in username: udit.kandari@bbc.com
+2024-09-27 19:23:46 info: Filling input field "//input[@id='email-address']" with value "udit.kandari@bbc.com".
+2024-09-27 19:23:50 info: Filled input field "//input[@id='email-address']" successfully.
+2024-09-27 19:23:50 info: Filling in password
+2024-09-27 19:23:50 info: Filling input field "//input[@id='password']" with value "Tmittmif#@5248360".
+2024-09-27 19:23:50 info: Filled input field "//input[@id='password']" successfully.
+2024-09-27 19:23:50 info: Agreeing to terms of service
+2024-09-27 19:23:50 info: Filled input field "//input[@id='email-address']" successfully.
+2024-09-27 19:23:50 info: Filling in password
+2024-09-27 19:23:50 info: Filling input field "//input[@id='password']" with value "Tmittmif#@5248360".
+2024-09-27 19:23:50 info: Checkbox "//input[@id='agree']" checked successfully.
+2024-09-27 19:23:50 info: Submitting login form
+2024-09-27 19:23:50 info: Attempting to click on element "//input[@id='submit-button']".
+2024-09-27 19:23:50 info: Waiting for element "//input[@id='submit-button']" to be visible with timeout 10000ms.
+2024-09-27 19:23:50 info: Element "//input[@id='submit-button']" is visible.
+2024-09-27 19:23:50 info: Clicked on element "//input[@id='submit-button']" successfully.
+2024-09-27 19:23:50 info: Validating login
+2024-09-27 19:23:50 info: Filled input field "//input[@id='password']" successfully.
+2024-09-27 19:23:50 info: Agreeing to terms of service
+2024-09-27 19:23:50 info: Checkbox "//input[@id='agree']" checked successfully.
+2024-09-27 19:23:50 info: Submitting login form
+2024-09-27 19:23:50 info: Attempting to click on element "//input[@id='submit-button']".
+2024-09-27 19:23:50 info: Waiting for element "//input[@id='submit-button']" to be visible with timeout 10000ms.
+2024-09-27 19:23:50 info: Element "//input[@id='submit-button']" is visible.
+2024-09-27 19:23:50 info: Clicked on element "//input[@id='submit-button']" successfully.
+2024-09-27 19:23:50 info: Validating login
+2024-09-27 19:23:53 info: udit kandari logged in successfully
+2024-09-27 19:23:53 info: Login performed successfully
+2024-09-27 19:23:53 info: Verifying dashboard page title
+2024-09-27 19:23:53 info: Waiting for dashboard visibility
+2024-09-27 19:23:53 info: Waiting for element "//div[@id="GridstackDashboard"]" to be visible with timeout 10000ms.
+2024-09-27 19:23:53 info: udit kandari logged in successfully
+2024-09-27 19:23:53 info: Login performed successfully
+2024-09-27 19:23:53 info: Navigating to contract page
+2024-09-27 19:23:53 info: Waiting for dashboard visibility
+2024-09-27 19:23:53 info: Waiting for element "//div[@id="GridstackDashboard"]" to be visible with timeout 10000ms.
+2024-09-27 19:23:54 info: Element "//div[@id="GridstackDashboard"]" is visible.
+2024-09-27 19:23:55 info: Element "//div[@id="GridstackDashboard"]" is visible.
+2024-09-27 19:23:55 info: Page title: Dashboard | MediaBox Royalty Management
+2024-09-27 19:23:55 info: Finished test
+2024-09-27 19:23:55 info: Navigated to contract page
+2024-09-27 19:23:55 info: Searching for contract with number: md00085a
+2024-09-27 19:23:55 info: Filling contract number: md00085a
+2024-09-27 19:23:55 info: Filling input field "//input[@name='SearchExpr']" with value "md00085a".
+2024-09-27 19:23:56 info: Filled input field "//input[@name='SearchExpr']" successfully.
+2024-09-27 19:23:56 info: Clicking 'Search' button
+2024-09-27 19:23:56 info: Attempting to click on element "//a[@class="btn btn-default SearchboxBtn"]".
+2024-09-27 19:23:56 info: Waiting for element "//a[@class="btn btn-default SearchboxBtn"]" to be visible with timeout 10000ms.
+2024-09-27 19:23:56 info: Element "//a[@class="btn btn-default SearchboxBtn"]" is visible.
+2024-09-27 19:23:56 info: Starting test: LoginPage
+2024-09-27 19:23:56 info: Navigating to RM-512 login page
+2024-09-27 19:23:56 info: Performing login
+2024-09-27 19:23:56 info: Filling in username: udit.kandari@bbc.com
+2024-09-27 19:23:56 info: Filling input field "//input[@id='email-address']" with value "udit.kandari@bbc.com".
+2024-09-27 19:23:56 info: Clicked on element "//a[@class="btn btn-default SearchboxBtn"]" successfully.
+2024-09-27 19:23:58 info: Selecting contract with number: md00085a
+2024-09-27 19:23:58 info: Contract with number: md00085a selected
+2024-09-27 19:23:58 info: Editing in contract wizard for contract: md00085
+2024-09-27 19:23:58 info: Validating contract terms page loaded for contract number: md00085
+2024-09-27 19:23:58 info: Waiting for element "//h1[starts-with(text(), "Contract No.")]" to be visible with timeout 10000ms.
+2024-09-27 19:24:00 info: Filled input field "//input[@id='email-address']" successfully.
+2024-09-27 19:24:00 info: Filling in password
+2024-09-27 19:24:00 info: Filling input field "//input[@id='password']" with value "Tmittmif#@5248360".
+2024-09-27 19:24:00 info: Filled input field "//input[@id='password']" successfully.
+2024-09-27 19:24:00 info: Agreeing to terms of service
+2024-09-27 19:24:00 info: Checkbox "//input[@id='agree']" checked successfully.
+2024-09-27 19:24:00 info: Submitting login form
+2024-09-27 19:24:00 info: Attempting to click on element "//input[@id='submit-button']".
+2024-09-27 19:24:00 info: Waiting for element "//input[@id='submit-button']" to be visible with timeout 10000ms.
+2024-09-27 19:24:00 info: Element "//input[@id='submit-button']" is visible.
+2024-09-27 19:24:00 info: Clicked on element "//input[@id='submit-button']" successfully.
+2024-09-27 19:24:00 info: Validating login
+2024-09-27 19:24:02 info: udit kandari logged in successfully
+2024-09-27 19:24:02 info: Login performed successfully
+2024-09-27 19:24:02 info: Changing language to English (UK)
+2024-09-27 19:24:02 info: Waiting for dashboard visibility
+2024-09-27 19:24:02 info: Waiting for element "//div[@id="GridstackDashboard"]" to be visible with timeout 10000ms.
+2024-09-27 19:24:03 info: Element "//div[@id="GridstackDashboard"]" is visible.
+2024-09-27 19:24:05 info: Language changed to English (UK)
+2024-09-27 19:24:05 info: Finished test
+2024-09-27 19:24:08 error: Timeout while waiting for element "//h1[starts-with(text(), "Contract No.")]" to be visible.
+2024-09-27 19:24:08 info: Finished test
+2024-09-27 19:44:20 info: Starting test: LoginPage
+2024-09-27 19:44:20 info: Starting test: LoginPage
+2024-09-27 19:44:20 info: Navigating to RM-512 login page
+2024-09-27 19:44:20 info: Performing login
+2024-09-27 19:44:20 info: Filling in username: udit.kandari@bbc.com
+2024-09-27 19:44:20 info: Filling input field "//input[@id='email-address']" with value "udit.kandari@bbc.com".
+2024-09-27 19:44:20 info: Navigating to RM-512 login page
+2024-09-27 19:44:20 info: Performing login
+2024-09-27 19:44:20 info: Filling in username: udit.kandari@bbc.com
+2024-09-27 19:44:20 info: Filling input field "//input[@id='email-address']" with value "udit.kandari@bbc.com".
+2024-09-27 19:44:25 info: Filled input field "//input[@id='email-address']" successfully.
+2024-09-27 19:44:25 info: Filling in password
+2024-09-27 19:44:25 info: Filling input field "//input[@id='password']" with value "Tmittmif#@5248360".
+2024-09-27 19:44:25 info: Filled input field "//input[@id='password']" successfully.
+2024-09-27 19:44:25 info: Agreeing to terms of service
+2024-09-27 19:44:25 info: Checkbox "//input[@id='agree']" checked successfully.
+2024-09-27 19:44:25 info: Submitting login form
+2024-09-27 19:44:25 info: Attempting to click on element "//input[@id='submit-button']".
+2024-09-27 19:44:25 info: Waiting for element "//input[@id='submit-button']" to be visible with timeout 10000ms.
+2024-09-27 19:44:25 info: Element "//input[@id='submit-button']" is visible.
+2024-09-27 19:44:25 info: Filled input field "//input[@id='email-address']" successfully.
+2024-09-27 19:44:25 info: Filling in password
+2024-09-27 19:44:25 info: Filling input field "//input[@id='password']" with value "Tmittmif#@5248360".
+2024-09-27 19:44:25 info: Clicked on element "//input[@id='submit-button']" successfully.
+2024-09-27 19:44:25 info: Validating login
+2024-09-27 19:44:25 info: Filled input field "//input[@id='password']" successfully.
+2024-09-27 19:44:25 info: Agreeing to terms of service
+2024-09-27 19:44:25 info: Checkbox "//input[@id='agree']" checked successfully.
+2024-09-27 19:44:25 info: Submitting login form
+2024-09-27 19:44:25 info: Attempting to click on element "//input[@id='submit-button']".
+2024-09-27 19:44:25 info: Waiting for element "//input[@id='submit-button']" to be visible with timeout 10000ms.
+2024-09-27 19:44:25 info: Element "//input[@id='submit-button']" is visible.
+2024-09-27 19:44:26 info: Clicked on element "//input[@id='submit-button']" successfully.
+2024-09-27 19:44:26 info: Validating login
+2024-09-27 19:44:36 info: udit kandari logged in successfully
+2024-09-27 19:44:36 info: Login performed successfully
+2024-09-27 19:44:36 info: Navigating to contract page
+2024-09-27 19:44:36 info: Waiting for dashboard visibility
+2024-09-27 19:44:36 info: Waiting for element "//div[@id="GridstackDashboard"]" to be visible with timeout 10000ms.
+2024-09-27 19:44:37 info: udit kandari logged in successfully
+2024-09-27 19:44:37 info: Login performed successfully
+2024-09-27 19:44:37 info: Verifying dashboard page title
+2024-09-27 19:44:37 info: Waiting for dashboard visibility
+2024-09-27 19:44:37 info: Waiting for element "//div[@id="GridstackDashboard"]" to be visible with timeout 10000ms.
+2024-09-27 19:44:38 info: Element "//div[@id="GridstackDashboard"]" is visible.
+2024-09-27 19:44:38 info: Page title: Dashboard | MediaBox Royalty Management
+2024-09-27 19:44:38 info: Finished test
+2024-09-27 19:44:39 info: Element "//div[@id="GridstackDashboard"]" is visible.
+2024-09-27 19:44:39 info: Starting test: LoginPage
+2024-09-27 19:44:39 info: Navigating to RM-512 login page
+2024-09-27 19:44:39 info: Performing login
+2024-09-27 19:44:39 info: Filling in username: udit.kandari@bbc.com
+2024-09-27 19:44:39 info: Filling input field "//input[@id='email-address']" with value "udit.kandari@bbc.com".
+2024-09-27 19:44:43 info: Filled input field "//input[@id='email-address']" successfully.
+2024-09-27 19:44:43 info: Filling in password
+2024-09-27 19:44:43 info: Filling input field "//input[@id='password']" with value "Tmittmif#@5248360".
+2024-09-27 19:44:43 info: Filled input field "//input[@id='password']" successfully.
+2024-09-27 19:44:43 info: Agreeing to terms of service
+2024-09-27 19:44:44 info: Checkbox "//input[@id='agree']" checked successfully.
+2024-09-27 19:44:44 info: Submitting login form
+2024-09-27 19:44:44 info: Attempting to click on element "//input[@id='submit-button']".
+2024-09-27 19:44:44 info: Waiting for element "//input[@id='submit-button']" to be visible with timeout 10000ms.
+2024-09-27 19:44:44 info: Element "//input[@id='submit-button']" is visible.
+2024-09-27 19:44:44 info: Clicked on element "//input[@id='submit-button']" successfully.
+2024-09-27 19:44:44 info: Validating login
+2024-09-27 19:44:45 info: Navigated to contract page
+2024-09-27 19:44:45 info: Searching for contract with number: md00085a
+2024-09-27 19:44:45 info: Filling contract number: md00085a
+2024-09-27 19:44:45 info: Filling input field "//input[@name='SearchExpr']" with value "md00085a".
+2024-09-27 19:44:45 info: Filled input field "//input[@name='SearchExpr']" successfully.
+2024-09-27 19:44:45 info: Clicking 'Search' button
+2024-09-27 19:44:45 info: Attempting to click on element "//a[@class="btn btn-default SearchboxBtn"]".
+2024-09-27 19:44:45 info: Waiting for element "//a[@class="btn btn-default SearchboxBtn"]" to be visible with timeout 10000ms.
+2024-09-27 19:44:45 info: Element "//a[@class="btn btn-default SearchboxBtn"]" is visible.
+2024-09-27 19:44:45 info: Clicked on element "//a[@class="btn btn-default SearchboxBtn"]" successfully.
+2024-09-27 19:44:47 info: udit kandari logged in successfully
+2024-09-27 19:44:47 info: Login performed successfully
+2024-09-27 19:44:47 info: Changing language to English (UK)
+2024-09-27 19:44:47 info: Waiting for dashboard visibility
+2024-09-27 19:44:47 info: Waiting for element "//div[@id="GridstackDashboard"]" to be visible with timeout 10000ms.
+2024-09-27 19:44:47 info: Selecting contract with number: md00085a
+2024-09-27 19:44:47 info: Contract with number: md00085a selected
+2024-09-27 19:44:47 info: Editing in contract wizard for contract: md00085
+2024-09-27 19:44:47 info: Validating contract terms page loaded for contract number: md00085
+2024-09-27 19:44:47 info: Waiting for element "//h1[starts-with(text(), "Contract No.")]" to be visible with timeout 10000ms.
+2024-09-27 19:44:47 info: Finished test
+2024-09-27 19:44:47 error: Timeout while waiting for element "//h1[starts-with(text(), "Contract No.")]" to be visible.
+2024-09-27 19:44:49 info: Element "//div[@id="GridstackDashboard"]" is visible.
+2024-09-27 19:44:51 info: Language changed to English (UK)
+2024-09-27 19:44:51 info: Finished test
+2024-09-27 19:46:24 info: Starting test: LoginPage
+2024-09-27 19:46:24 info: Navigating to RM-512 login page
+2024-09-27 19:46:25 info: Performing login
+2024-09-27 19:46:25 info: Filling in username: udit.kandari@bbc.com
+2024-09-27 19:46:25 info: Filling input field "//input[@id='email-address']" with value "udit.kandari@bbc.com".
+2024-09-27 19:46:25 info: Starting test: LoginPage
+2024-09-27 19:46:25 info: Navigating to RM-512 login page
+2024-09-27 19:46:25 info: Performing login
+2024-09-27 19:46:25 info: Filling in username: udit.kandari@bbc.com
+2024-09-27 19:46:25 info: Filling input field "//input[@id='email-address']" with value "udit.kandari@bbc.com".
+2024-09-27 19:46:28 info: Filled input field "//input[@id='email-address']" successfully.
+2024-09-27 19:46:28 info: Filling in password
+2024-09-27 19:46:28 info: Filling input field "//input[@id='password']" with value "Tmittmif#@5248360".
+2024-09-27 19:46:28 info: Filled input field "//input[@id='password']" successfully.
+2024-09-27 19:46:28 info: Agreeing to terms of service
+2024-09-27 19:46:28 info: Checkbox "//input[@id='agree']" checked successfully.
+2024-09-27 19:46:28 info: Submitting login form
+2024-09-27 19:46:28 info: Attempting to click on element "//input[@id='submit-button']".
+2024-09-27 19:46:28 info: Waiting for element "//input[@id='submit-button']" to be visible with timeout 10000ms.
+2024-09-27 19:46:28 info: Element "//input[@id='submit-button']" is visible.
+2024-09-27 19:46:28 info: Clicked on element "//input[@id='submit-button']" successfully.
+2024-09-27 19:46:28 info: Validating login
+2024-09-27 19:46:28 info: Filled input field "//input[@id='email-address']" successfully.
+2024-09-27 19:46:28 info: Filling in password
+2024-09-27 19:46:28 info: Filling input field "//input[@id='password']" with value "Tmittmif#@5248360".
+2024-09-27 19:46:29 info: Filled input field "//input[@id='password']" successfully.
+2024-09-27 19:46:29 info: Agreeing to terms of service
+2024-09-27 19:46:29 info: Checkbox "//input[@id='agree']" checked successfully.
+2024-09-27 19:46:29 info: Submitting login form
+2024-09-27 19:46:29 info: Attempting to click on element "//input[@id='submit-button']".
+2024-09-27 19:46:29 info: Waiting for element "//input[@id='submit-button']" to be visible with timeout 10000ms.
+2024-09-27 19:46:29 info: Element "//input[@id='submit-button']" is visible.
+2024-09-27 19:46:29 info: Clicked on element "//input[@id='submit-button']" successfully.
+2024-09-27 19:46:29 info: Validating login
+2024-09-27 19:46:31 info: udit kandari logged in successfully
+2024-09-27 19:46:31 info: Login performed successfully
+2024-09-27 19:46:31 info: Navigating to contract page
+2024-09-27 19:46:31 info: Waiting for dashboard visibility
+2024-09-27 19:46:31 info: Waiting for element "//div[@id="GridstackDashboard"]" to be visible with timeout 10000ms.
+2024-09-27 19:46:32 info: udit kandari logged in successfully
+2024-09-27 19:46:32 info: Login performed successfully
+2024-09-27 19:46:32 info: Verifying dashboard page title
+2024-09-27 19:46:32 info: Waiting for dashboard visibility
+2024-09-27 19:46:32 info: Waiting for element "//div[@id="GridstackDashboard"]" to be visible with timeout 10000ms.
+2024-09-27 19:46:33 info: Element "//div[@id="GridstackDashboard"]" is visible.
+2024-09-27 19:46:33 info: Element "//div[@id="GridstackDashboard"]" is visible.
+2024-09-27 19:46:33 info: Page title: Dashboard | MediaBox Royalty Management
+2024-09-27 19:46:34 info: Finished test
+2024-09-27 19:46:34 info: Navigated to contract page
+2024-09-27 19:46:34 info: Searching for contract with number: md00085
+2024-09-27 19:46:34 info: Filling contract number: md00085
+2024-09-27 19:46:34 info: Filling input field "//input[@name='SearchExpr']" with value "md00085".
+2024-09-27 19:46:34 info: Filled input field "//input[@name='SearchExpr']" successfully.
+2024-09-27 19:46:34 info: Clicking 'Search' button
+2024-09-27 19:46:34 info: Attempting to click on element "//a[@class="btn btn-default SearchboxBtn"]".
+2024-09-27 19:46:34 info: Waiting for element "//a[@class="btn btn-default SearchboxBtn"]" to be visible with timeout 10000ms.
+2024-09-27 19:46:35 info: Element "//a[@class="btn btn-default SearchboxBtn"]" is visible.
+2024-09-27 19:46:35 info: Starting test: LoginPage
+2024-09-27 19:46:35 info: Navigating to RM-512 login page
+2024-09-27 19:46:35 info: Performing login
+2024-09-27 19:46:35 info: Filling in username: udit.kandari@bbc.com
+2024-09-27 19:46:35 info: Filling input field "//input[@id='email-address']" with value "udit.kandari@bbc.com".
+2024-09-27 19:46:35 info: Clicked on element "//a[@class="btn btn-default SearchboxBtn"]" successfully.
+2024-09-27 19:46:37 info: Selecting contract with number: md00085
+2024-09-27 19:46:37 info: Found contract number: MD00085, clicking on it
+2024-09-27 19:46:38 info: Filled input field "//input[@id='email-address']" successfully.
+2024-09-27 19:46:38 info: Filling in password
+2024-09-27 19:46:38 info: Filling input field "//input[@id='password']" with value "Tmittmif#@5248360".
+2024-09-27 19:46:38 info: Filled input field "//input[@id='password']" successfully.
+2024-09-27 19:46:38 info: Agreeing to terms of service
+2024-09-27 19:46:38 info: Checkbox "//input[@id='agree']" checked successfully.
+2024-09-27 19:46:38 info: Submitting login form
+2024-09-27 19:46:38 info: Attempting to click on element "//input[@id='submit-button']".
+2024-09-27 19:46:38 info: Waiting for element "//input[@id='submit-button']" to be visible with timeout 10000ms.
+2024-09-27 19:46:38 info: Element "//input[@id='submit-button']" is visible.
+2024-09-27 19:46:38 info: Clicked on element "//input[@id='submit-button']" successfully.
+2024-09-27 19:46:38 info: Validating login
+2024-09-27 19:46:41 info: udit kandari logged in successfully
+2024-09-27 19:46:41 info: Login performed successfully
+2024-09-27 19:46:41 info: Changing language to English (UK)
+2024-09-27 19:46:41 info: Waiting for dashboard visibility
+2024-09-27 19:46:41 info: Waiting for element "//div[@id="GridstackDashboard"]" to be visible with timeout 10000ms.
+2024-09-27 19:46:42 info: Element "//div[@id="GridstackDashboard"]" is visible.
+2024-09-27 19:46:44 info: Language changed to English (UK)
+2024-09-27 19:46:44 info: Finished test
+2024-09-27 19:46:44 info: Contract with number: md00085 selected
+2024-09-27 19:46:44 info: Editing in contract wizard for contract: md00085
+2024-09-27 19:46:44 info: Validating contract terms page loaded for contract number: md00085
+2024-09-27 19:46:44 info: Waiting for element "//h1[starts-with(text(), "Contract No.")]" to be visible with timeout 10000ms.
+2024-09-27 19:46:44 info: Element "//h1[starts-with(text(), "Contract No.")]" is visible.
+2024-09-27 19:46:44 info: Contract Terms page heading text: Contract No. MD00085
+2024-09-27 19:46:44 info: Contract terms page loaded: true
+2024-09-27 19:46:44 info: Attempting to click on Select Action.
+2024-09-27 19:46:44 info: Waiting for element "//button[contains(text(), 'Select Action')]" to be visible with timeout 10000ms.
+2024-09-27 19:46:44 info: Element "//button[contains(text(), 'Select Action')]" is visible.
+2024-09-27 19:46:45 info: Clicked on Select Action successfully.
+2024-09-27 19:46:45 info: Attempting to click on Edit Contract.
+2024-09-27 19:46:45 info: Waiting for element "//a[contains(text(),"Edit in Contract Wizard")]" to be visible with timeout 10000ms.
+2024-09-27 19:46:45 info: Element "//a[contains(text(),"Edit in Contract Wizard")]" is visible.
+2024-09-27 19:46:55 info: Clicked on Edit Contract successfully.
+2024-09-27 19:46:55 info: Clicked on 'Edit in Contract Wizard'
+2024-09-27 19:46:55 info: Finished test
+2024-09-27 19:48:36 info: Starting test: LoginPage
+2024-09-27 19:48:36 info: Navigating to RM-512 login page
+2024-09-27 19:48:36 info: Performing login
+2024-09-27 19:48:36 info: Filling in username: udit.kandari@bbc.com
+2024-09-27 19:48:36 info: Filling input field "//input[@id='email-address']" with value "udit.kandari@bbc.com".
+2024-09-27 19:48:40 info: Filled input field "//input[@id='email-address']" successfully.
+2024-09-27 19:48:40 info: Filling in password
+2024-09-27 19:48:40 info: Filling input field "//input[@id='password']" with value "Tmittmif#@5248360".
+2024-09-27 19:48:40 info: Filled input field "//input[@id='password']" successfully.
+2024-09-27 19:48:40 info: Agreeing to terms of service
+2024-09-27 19:48:40 info: Checkbox "//input[@id='agree']" checked successfully.
+2024-09-27 19:48:40 info: Submitting login form
+2024-09-27 19:48:40 info: Attempting to click on element "//input[@id='submit-button']".
+2024-09-27 19:48:40 info: Waiting for element "//input[@id='submit-button']" to be visible with timeout 10000ms.
+2024-09-27 19:48:40 info: Element "//input[@id='submit-button']" is visible.
+2024-09-27 19:48:40 info: Clicked on element "//input[@id='submit-button']" successfully.
+2024-09-27 19:48:40 info: Validating login
+2024-09-27 19:48:43 info: udit kandari logged in successfully
+2024-09-27 19:48:43 info: Login performed successfully
+2024-09-27 19:48:43 info: Navigating to contract page
+2024-09-27 19:48:43 info: Waiting for dashboard visibility
+2024-09-27 19:48:43 info: Waiting for element "//div[@id="GridstackDashboard"]" to be visible with timeout 10000ms.
+2024-09-27 19:48:45 info: Element "//div[@id="GridstackDashboard"]" is visible.
+2024-09-27 19:48:45 info: Navigated to contract page
+2024-09-27 19:48:45 info: Searching for contract with number: md00085
+2024-09-27 19:48:45 info: Filling contract number: md00085
+2024-09-27 19:48:45 info: Filling input field "//input[@name='SearchExpr']" with value "md00085".
+2024-09-27 19:48:46 info: Filled input field "//input[@name='SearchExpr']" successfully.
+2024-09-27 19:48:46 info: Clicking 'Search' button
+2024-09-27 19:48:46 info: Attempting to click on element "//a[@class="btn btn-default SearchboxBtn"]".
+2024-09-27 19:48:46 info: Waiting for element "//a[@class="btn btn-default SearchboxBtn"]" to be visible with timeout 10000ms.
+2024-09-27 19:48:46 info: Element "//a[@class="btn btn-default SearchboxBtn"]" is visible.
+2024-09-27 19:48:47 info: Clicked on element "//a[@class="btn btn-default SearchboxBtn"]" successfully.
+2024-09-27 19:48:49 info: Selecting contract with number: md00085
+2024-09-27 19:48:49 info: Found contract number: MD00085, clicking on it
+2024-09-27 19:48:51 info: Contract with number: md00085 selected
+2024-09-27 19:48:51 info: Editing in contract wizard for contract: md00085
+2024-09-27 19:48:51 info: Validating contract terms page loaded for contract number: md00085
+2024-09-27 19:48:51 info: Waiting for element "//h1[starts-with(text(), "Contract No.")]" to be visible with timeout 10000ms.
+2024-09-27 19:48:51 info: Element "//h1[starts-with(text(), "Contract No.")]" is visible.
+2024-09-27 19:48:51 info: Contract Terms page heading text: Contract No. MD00085
+2024-09-27 19:48:51 info: Contract terms page loaded: true
+2024-09-27 19:48:51 info: Attempting to click on Select Action.
+2024-09-27 19:48:51 info: Waiting for element "//button[contains(text(), 'Select Action')]" to be visible with timeout 10000ms.
+2024-09-27 19:48:52 info: Element "//button[contains(text(), 'Select Action')]" is visible.
+2024-09-27 19:48:52 info: Clicked on Select Action successfully.
+2024-09-27 19:48:52 info: Attempting to click on Edit Contract.
+2024-09-27 19:48:52 info: Waiting for element "//a[contains(text(),"Edit in Contract Wizard")]" to be visible with timeout 10000ms.
+2024-09-27 19:48:52 info: Element "//a[contains(text(),"Edit in Contract Wizard")]" is visible.
+2024-09-27 19:48:53 info: Clicked on Edit Contract successfully.
+2024-09-27 19:48:53 info: Clicked on 'Edit in Contract Wizard'
+2024-09-27 19:48:53 info: Finished test
+2024-09-27 20:01:11 info: Starting test: LoginPage
+2024-09-27 20:01:11 info: Navigating to RM-512 login page
+2024-09-27 20:01:11 info: Performing login
+2024-09-27 20:01:11 info: Filling in username: udit.kandari@bbc.com
+2024-09-27 20:01:11 info: Filling input field "//input[@id='email-address']" with value "udit.kandari@bbc.com".
+2024-09-27 20:01:11 info: Starting test: LoginPage
+2024-09-27 20:01:11 info: Navigating to RM-512 login page
+2024-09-27 20:01:11 info: Performing login
+2024-09-27 20:01:11 info: Filling in username: udit.kandari@bbc.com
+2024-09-27 20:01:11 info: Filling input field "//input[@id='email-address']" with value "udit.kandari@bbc.com".
+2024-09-27 20:01:16 info: Filled input field "//input[@id='email-address']" successfully.
+2024-09-27 20:01:16 info: Filling in password
+2024-09-27 20:01:16 info: Filling input field "//input[@id='password']" with value "Tmittmif#@5248360".
+2024-09-27 20:01:16 info: Filled input field "//input[@id='email-address']" successfully.
+2024-09-27 20:01:16 info: Filling in password
+2024-09-27 20:01:16 info: Filling input field "//input[@id='password']" with value "Tmittmif#@5248360".
+2024-09-27 20:01:16 info: Filled input field "//input[@id='password']" successfully.
+2024-09-27 20:01:16 info: Agreeing to terms of service
+2024-09-27 20:01:17 info: Checkbox "//input[@id='agree']" checked successfully.
+2024-09-27 20:01:17 info: Submitting login form
+2024-09-27 20:01:17 info: Attempting to click on element "//input[@id='submit-button']".
+2024-09-27 20:01:17 info: Waiting for element "//input[@id='submit-button']" to be visible with timeout 10000ms.
+2024-09-27 20:01:17 info: Element "//input[@id='submit-button']" is visible.
+2024-09-27 20:01:17 info: Clicked on element "//input[@id='submit-button']" successfully.
+2024-09-27 20:01:17 info: Validating login
+2024-09-27 20:01:17 info: Filled input field "//input[@id='password']" successfully.
+2024-09-27 20:01:17 info: Agreeing to terms of service
+2024-09-27 20:01:17 info: Checkbox "//input[@id='agree']" checked successfully.
+2024-09-27 20:01:17 info: Submitting login form
+2024-09-27 20:01:17 info: Attempting to click on element "//input[@id='submit-button']".
+2024-09-27 20:01:17 info: Waiting for element "//input[@id='submit-button']" to be visible with timeout 10000ms.
+2024-09-27 20:01:17 info: Element "//input[@id='submit-button']" is visible.
+2024-09-27 20:01:17 info: Clicked on element "//input[@id='submit-button']" successfully.
+2024-09-27 20:01:17 info: Validating login
+2024-09-27 20:01:19 info: udit kandari logged in successfully
+2024-09-27 20:01:19 info: Login performed successfully
+2024-09-27 20:01:19 info: Navigating to contract page
+2024-09-27 20:01:19 info: Waiting for dashboard visibility
+2024-09-27 20:01:19 info: Waiting for element "//div[@id="GridstackDashboard"]" to be visible with timeout 10000ms.
+2024-09-27 20:01:20 info: udit kandari logged in successfully
+2024-09-27 20:01:20 info: Login performed successfully
+2024-09-27 20:01:20 info: Verifying dashboard page title
+2024-09-27 20:01:20 info: Waiting for dashboard visibility
+2024-09-27 20:01:20 info: Waiting for element "//div[@id="GridstackDashboard"]" to be visible with timeout 10000ms.
+2024-09-27 20:01:21 info: Element "//div[@id="GridstackDashboard"]" is visible.
+2024-09-27 20:01:21 info: Element "//div[@id="GridstackDashboard"]" is visible.
+2024-09-27 20:01:21 info: Page title: Dashboard | MediaBox Royalty Management
+2024-09-27 20:01:21 info: Finished test
+2024-09-27 20:01:22 info: Starting test: LoginPage
+2024-09-27 20:01:22 info: Navigating to RM-512 login page
+2024-09-27 20:01:22 info: Performing login
+2024-09-27 20:01:22 info: Filling in username: udit.kandari@bbc.com
+2024-09-27 20:01:22 info: Filling input field "//input[@id='email-address']" with value "udit.kandari@bbc.com".
+2024-09-27 20:01:22 info: Navigated to contract page
+2024-09-27 20:01:22 info: Searching for contract with number: md00085
+2024-09-27 20:01:22 info: Filling contract number: md00085
+2024-09-27 20:01:22 info: Filling input field "//input[@name='SearchExpr']" with value "md00085".
+2024-09-27 20:01:23 info: Filled input field "//input[@name='SearchExpr']" successfully.
+2024-09-27 20:01:23 info: Clicking 'Search' button
+2024-09-27 20:01:23 info: Attempting to click on element "//a[@class="btn btn-default SearchboxBtn"]".
+2024-09-27 20:01:23 info: Waiting for element "//a[@class="btn btn-default SearchboxBtn"]" to be visible with timeout 10000ms.
+2024-09-27 20:01:23 info: Element "//a[@class="btn btn-default SearchboxBtn"]" is visible.
+2024-09-27 20:01:23 info: Clicked on element "//a[@class="btn btn-default SearchboxBtn"]" successfully.
+2024-09-27 20:01:25 info: Selecting contract with number: md00085
+2024-09-27 20:01:25 info: Found contract number: MD00085, clicking on it
+2024-09-27 20:01:26 info: Filled input field "//input[@id='email-address']" successfully.
+2024-09-27 20:01:26 info: Filling in password
+2024-09-27 20:01:26 info: Filling input field "//input[@id='password']" with value "Tmittmif#@5248360".
+2024-09-27 20:01:26 info: Filled input field "//input[@id='password']" successfully.
+2024-09-27 20:01:26 info: Agreeing to terms of service
+2024-09-27 20:01:26 info: Checkbox "//input[@id='agree']" checked successfully.
+2024-09-27 20:01:26 info: Submitting login form
+2024-09-27 20:01:26 info: Attempting to click on element "//input[@id='submit-button']".
+2024-09-27 20:01:26 info: Waiting for element "//input[@id='submit-button']" to be visible with timeout 10000ms.
+2024-09-27 20:01:26 info: Element "//input[@id='submit-button']" is visible.
+2024-09-27 20:01:26 info: Clicked on element "//input[@id='submit-button']" successfully.
+2024-09-27 20:01:26 info: Validating login
+2024-09-27 20:01:27 info: Contract with number: md00085 selected
+2024-09-27 20:01:27 info: Editing in contract wizard for contract: md00085
+2024-09-27 20:01:27 info: Validating contract terms page loaded for contract number: md00085
+2024-09-27 20:01:27 info: Waiting for element "//h1[starts-with(text(), "Contract No.")]" to be visible with timeout 10000ms.
+2024-09-27 20:01:27 info: Element "//h1[starts-with(text(), "Contract No.")]" is visible.
+2024-09-27 20:01:27 info: Contract Terms page heading text: Contract No. MD00085
+2024-09-27 20:01:27 info: Contract terms page loaded: true
+2024-09-27 20:01:27 info: Attempting to click on Select Action.
+2024-09-27 20:01:27 info: Waiting for element "//button[contains(text(), 'Select Action')]" to be visible with timeout 10000ms.
+2024-09-27 20:01:27 info: Element "//button[contains(text(), 'Select Action')]" is visible.
+2024-09-27 20:01:27 info: Clicked on Select Action successfully.
+2024-09-27 20:01:27 info: Attempting to click on Edit Contract.
+2024-09-27 20:01:27 info: Waiting for element "//a[contains(text(),"Edit in Contract Wizard")]" to be visible with timeout 10000ms.
+2024-09-27 20:01:27 info: Element "//a[contains(text(),"Edit in Contract Wizard")]" is visible.
+2024-09-27 20:01:29 info: udit kandari logged in successfully
+2024-09-27 20:01:29 info: Login performed successfully
+2024-09-27 20:01:29 info: Changing language to English (UK)
+2024-09-27 20:01:29 info: Waiting for dashboard visibility
+2024-09-27 20:01:29 info: Waiting for element "//div[@id="GridstackDashboard"]" to be visible with timeout 10000ms.
+2024-09-27 20:01:30 info: Clicked on Edit Contract successfully.
+2024-09-27 20:01:30 info: Clicked on 'Edit in Contract Wizard'
+2024-09-27 20:01:30 info: Finished test
+2024-09-27 20:01:31 info: Element "//div[@id="GridstackDashboard"]" is visible.
+2024-09-27 20:01:32 info: Language changed to English (UK)
+2024-09-27 20:01:32 info: Finished test
