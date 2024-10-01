@@ -1,7 +1,10 @@
 import { Logger, Page } from "@playwright/test";
-import { CommonScenario } from "../../../../Util/Common_Library";
-import { Contract, ContractWizardPage } from "../NewContractWizard";
-import { detailsLocator } from "./DetailsPageLocators";
+import { CommonScenario } from "../../../../../Util/Common_Library";
+import {
+  Contract,
+  ContractWizardPage,
+} from "../../../ContractWizardPage/NewContractWizard/pages/ContractWizard";
+import { detailsLocator } from "../locators/DetailsPageLocators";
 
 export class DetailsPage extends ContractWizardPage {
   constructor(public page: Page, readonly scenario: CommonScenario) {
@@ -48,7 +51,7 @@ export class DetailsPage extends ContractWizardPage {
   }
 
   async selectContractType(selectOptionText: string) {
-    await this.selectDropdownOption(
+    await this.selectOptionById(
       detailsLocator.contractTypeId,
       selectOptionText
     );
@@ -56,7 +59,7 @@ export class DetailsPage extends ContractWizardPage {
   }
 
   async selectContractStage(selectOptionText: string) {
-    await this.selectDropdownOption(
+    await this.selectOptionById(
       detailsLocator.contractStageId,
       selectOptionText
     );
@@ -64,18 +67,12 @@ export class DetailsPage extends ContractWizardPage {
   }
 
   async selectLicensor(selectOptionText: string) {
-    await this.selectDropdownOption(
-      detailsLocator.licensorId,
-      selectOptionText
-    );
+    await this.selectOptionById(detailsLocator.licensorId, selectOptionText);
     await console.log(`Selected ${selectOptionText} for Licensor`);
   }
 
   async selectLicensee(selectOptionText: string) {
-    await this.selectDropdownOption(
-      detailsLocator.licenseeId,
-      selectOptionText
-    );
+    await this.selectOptionById(detailsLocator.licenseeId, selectOptionText);
     await console.log(`Selected ${selectOptionText} for Licensee`);
   }
 
@@ -110,7 +107,7 @@ export class DetailsPage extends ContractWizardPage {
   }
 
   async selectContractCurrency(selectOptionText: string) {
-    await this.selectDropdownOption(
+    await this.selectOptionById(
       detailsLocator.contractCurrencyId,
       selectOptionText
     );
@@ -118,7 +115,7 @@ export class DetailsPage extends ContractWizardPage {
   }
 
   async selectExchangeService(selectOptionText: string) {
-    await this.selectDropdownOption(
+    await this.selectOptionById(
       detailsLocator.exchangeServiceId,
       selectOptionText
     );
@@ -144,17 +141,22 @@ export class DetailsPage extends ContractWizardPage {
 
   async dealMemoExpirationDate(date: string) {
     await this.enterDateUsingPress(detailsLocator.dealMemoExpDateId, date);
+    await this.page.locator(detailsLocator.alternateContractId).click();
     await console.log(`Entered Memo Expiration Date: ${date}`);
   }
 
   async enterStartDate(startDateText: string) {
     await this.enterDateUsingPress(detailsLocator.startDateId, startDateText);
+    await this.page.locator(detailsLocator.alternateContractId).click();
     await console.log(`Entered Start Date: ${startDateText}`);
   }
+
   async enterEndDate(endDateText: string) {
     await this.enterDateUsingPress(detailsLocator.endDateId, endDateText);
+    await this.page.locator(detailsLocator.alternateContractId).click();
     await console.log(`Entered End Date: ${endDateText}`);
   }
+  
   async enterSellOffDays(sellOffDaysText: string) {
     const sellOffDays = await this.page.locator(detailsLocator.sellOffDaysId);
     await sellOffDays.fill(sellOffDaysText);

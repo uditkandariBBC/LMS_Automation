@@ -6,12 +6,12 @@ import {
   BrowserContext,
   chromium,
 } from "@playwright/test";
-import { testData } from "../../TestData/testData";
-import { CommonPage } from "../../Util/CommonPage";
-import { CommonScenario } from "../../Util/Common_Library";
-import { logInLocators } from "./LoginPageLocators";
-import logger from "../../Util/logger";
-import { ValidationException } from "../../Exceptions/CustomExceptions";
+import { testData } from "../../../TestData/testData";
+import { CommonPage } from "../../../Util/CommonPage";
+import { CommonScenario } from "../../../Util/Common_Library";
+import { logInLocators } from "./../locators/LoginPageLocators";
+import logger from "../../../Util/logger";
+import { ValidationException } from "../../../Exceptions/CustomExceptions";
 
 export class LoginPage extends CommonPage {
   constructor(public page: Page, readonly scenario: CommonScenario) {

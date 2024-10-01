@@ -1,8 +1,8 @@
 import { expect, Locator, Page } from "@playwright/test";
-import { CommonPage } from "../../Util/CommonPage";
-import { CommonScenario } from "../../Util/Common_Library";
-import { contractPageLocator } from "./ContractPageLocators";
-import logger from "../../Util/logger";
+import { CommonPage } from "../../../../Util/CommonPage";
+import { CommonScenario } from "../../../../Util/Common_Library";
+import { contractPageLocator } from "../locators/ContractPageLocators";
+import logger from "../../../../Util/logger";
 
 export class ContractPage extends CommonPage {
   constructor(public page: Page, readonly scenario: CommonScenario) {

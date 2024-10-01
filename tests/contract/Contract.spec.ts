@@ -1,17 +1,17 @@
 import test, { expect } from "../../Base/BaseTest";
 test.describe("Contract Tests", () => {
-  // test("Test Contract Creation Functionality", async ({
-  //   page,
-  //   dashboardPage,
-  //   contractPage,
-  //   detailsPage,
-  // }) => {
-  //   await dashboardPage.navigateToContractPage();
-  //   await contractPage.startNewContract();
-  //   await detailsPage.fillDataInDetails();
-  // });
+  test("Test Contract Creation Functionality", async ({
+    page,
+    dashboardPage,
+    contractPage,
+    detailsPage,
+  }) => {
+    await dashboardPage.navigateToContractPage();
+    await contractPage.startNewContract();
+    await detailsPage.fillDataInDetails();
+  });
 
-  test("Test search contract Functionality", async ({
+  test("Test Edit contract Functionality", async ({
     page,
     dashboardPage,
     contractPage,

@@ -1,10 +1,10 @@
 import { expect, Page } from "@playwright/test";
-import { testData } from "../../TestData/testData";
-import { locators } from "./DashboardPageLocators";
-import { CommonPage } from "../../Util/CommonPage";
-import { CommonScenario } from "../../Util/Common_Library";
-import { navLocator } from "./NavBarLocators";
-import logger from "../../Util/logger";
+import { testData } from "../../../TestData/testData";
+import { locators } from "./../locators/DashboardPageLocators";
+import { CommonPage } from "../../../Util/CommonPage";
+import { CommonScenario } from "../../../Util/Common_Library";
+import { navLocator } from "./../locators/NavBarLocators";
+import logger from "../../../Util/logger";
 
 export class DashboardPage extends CommonPage {
   constructor(public page: Page, readonly scenario: CommonScenario) {

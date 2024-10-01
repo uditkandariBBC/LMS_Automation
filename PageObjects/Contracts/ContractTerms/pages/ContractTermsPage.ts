@@ -1,9 +1,9 @@
 import { Page } from "@playwright/test";
-import { CommonPage } from "../../../Util/CommonPage";
-import { CommonScenario } from "../../../Util/Common_Library";
-import { termsPageLocator } from "./ContractTermsPageLocators";
-import logger from "../../../Util/logger";
-import { ValidationException } from "../../../Exceptions/CustomExceptions";
+import { CommonPage } from "../../../../Util/CommonPage";
+import { CommonScenario } from "../../../../Util/Common_Library";
+import { termsPageLocator } from "../locators/ContractTermsPageLocators";
+import logger from "../../../../Util/logger";
+import { ValidationException } from "../../../../Exceptions/CustomExceptions";
 
 export class TermsPage extends CommonPage {
   constructor(public page: Page, readonly scenario: CommonScenario) {
@@ -37,12 +37,10 @@ export class TermsPage extends CommonPage {
 
   async editInContractWizard(contract: string) {
     logger.info(`Editing in contract wizard for contract: ${contract}`);
-    const isLoaded = await this.validateContractTermsPageLoaded(contract);
-    logger.info(`Contract terms page loaded: ${isLoaded}`);
-
-    // Use clickElement from CommonPage directly for consistent behavior
-    await this.clickElement(termsPageLocator.selectAction, "Select Action");
-    await this.clickElement(termsPageLocator.editContract, "Edit Contract");
-    logger.info("Clicked on 'Edit in Contract Wizard'");
+    if (await this.validateContractTermsPageLoaded(contract)) {
+      await this.clickElement(termsPageLocator.selectAction, "Select Action");
+      await this.clickElement(termsPageLocator.editContract, "Edit Contract");
+      logger.info("Clicked on 'Edit in Contract Wizard'");
+    }
   }
 }
