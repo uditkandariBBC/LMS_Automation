@@ -1,48 +1,53 @@
-import { Page, test as baseTest, TestInfo } from "@playwright/test";
-import { LoginPage } from "../PageObjects/LoginPage/LoginPage";
-import { DashboardPage } from "../PageObjects/Dashboard/DashboardPage";
-import { CommonScenario } from "../Util/Common_Library";
-import { CommonPage } from "../Util/CommonPage";
-import { ContractPage } from "../PageObjects/Contracts/ContractPage";
-import { ContractWizardPage } from "../PageObjects/Contracts/ContractWizardPage/NewContractWizard";
-import { DetailsPage } from "../PageObjects/Contracts/ContractWizardPage/1_Details/DetailsPage";
-import { TermsPage } from "../PageObjects/Contracts/ContractTerms/ContractTermsPage";
-import { RightsPage } from "../PageObjects/Contracts/ContractWizardPage/2_Rights/RightsPage";
+// Base/BaseTest.ts
+
+import { test as baseTest, TestInfo } from "@playwright/test";
+import { CommonScenario } from "../Util/CommonScenario";
 import logger from "../Util/logger";
 import { transports } from "winston";
 import * as fs from "fs";
 import * as path from "path";
 
-// Ensure the base logs directory exists
-const baseLogDir = "logs";
-if (!fs.existsSync(baseLogDir)) {
-  fs.mkdirSync(baseLogDir);
+import { PageObjectManager } from "./PageObjectManager"; // Adjusted import
+
+// Constants for directory names
+const BASE_LOG_DIR = "logs";
+
+/**
+ * Sets up the logging directories for the application.
+ *
+ * @returns {string} The path to the daily log directory.
+ *
+ * @throws {Error} If there is an issue creating the directories.
+ */
+function setupLoggingDirectories() {
+  try {
+    if (!fs.existsSync(BASE_LOG_DIR)) {
+      fs.mkdirSync(BASE_LOG_DIR);
+    }
+
+    const currentDate = new Date().toISOString().split("T")[0]; // Get current date in YYYY-MM-DD format
+    const dailyLogDir = path.join(BASE_LOG_DIR, currentDate);
+    if (!fs.existsSync(dailyLogDir)) {
+      fs.mkdirSync(dailyLogDir);
+    }
+
+    return dailyLogDir;
+  } catch (error) {
+    console.error("Error setting up logging directories:", error);
+    throw error; // Re-throw the error after logging it
+  }
 }
 
-// Create a new folder for each day
-const currentDate = new Date().toISOString().split("T")[0]; // Get current date in YYYY-MM-DD format
-const dailyLogDir = path.join(baseLogDir, currentDate);
-if (!fs.existsSync(dailyLogDir)) {
-  fs.mkdirSync(dailyLogDir);
-}
+const dailyLogDir = setupLoggingDirectories();
 
-// declaring the objects type for autocompletion
-interface PageObjects {
-  loginPage: LoginPage;
-  dashboardPage: DashboardPage;
+/**
+ * Extends the base Playwright test with additional fixtures for page objects and common scenarios.
+ */
+const test = baseTest.extend<{
   commonScenarioPage: CommonScenario;
-  commonPage: CommonPage;
-  contractPage: ContractPage;
-  contractWizardPage: ContractWizardPage;
-  detailsPage: DetailsPage;
-  termsPage: TermsPage;
-  rightsPage: RightsPage;
-}
-
-// initializing all the page objects you have in your app and import them as fixture in spec file
-const test = baseTest.extend<PageObjects>({
+  pageObjectManager: PageObjectManager;
+}>({
   commonScenarioPage: async ({ page }, use, testInfo) => {
-    // Create a unique log file name based on the current timestamp
     const timestamp = new Date()
       .toISOString()
       .replace(/[:.]/g, "-")
@@ -57,45 +62,27 @@ const test = baseTest.extend<PageObjects>({
 
     await use(new CommonScenario(page, testInfo));
 
-    // Remove the logger transport after use
     logger.remove(fileTransport);
   },
-  loginPage: async ({ page, commonScenarioPage }, use) => {
-    await use(new LoginPage(page, commonScenarioPage));
-  },
-  dashboardPage: async ({ page, commonScenarioPage }, use) => {
-    await use(new DashboardPage(page, commonScenarioPage));
-  },
-  contractPage: async ({ page, commonScenarioPage }, use) => {
-    await use(new ContractPage(page, commonScenarioPage));
-  },
-  contractWizardPage: async ({ page, commonScenarioPage }, use) => {
-    await use(new ContractWizardPage(page, commonScenarioPage));
-  },
-  detailsPage: async ({ page, commonScenarioPage }, use) => {
-    await use(new DetailsPage(page, commonScenarioPage));
-  },
-  termsPage: async ({ page, commonScenarioPage }, use) => {
-    await use(new TermsPage(page, commonScenarioPage));
-  },
-  rightsPage: async ({ page, commonScenarioPage }, use) => {
-    await use(new RightsPage(page, commonScenarioPage));
+  pageObjectManager: async ({ page, commonScenarioPage }, use) => {
+    const manager = new PageObjectManager(page, commonScenarioPage);
+    await use(manager);
   },
 });
 
-// hooks as fixtures
-test.beforeEach(async ({ loginPage }) => {
-  logger.info(`Starting test: ${loginPage.constructor.name}`);
+// Hooks as fixtures
+test.beforeEach(async ({ pageObjectManager }) => {
+  logger.info(`Starting test: ${pageObjectManager.loginPage.constructor.name}`);
   logger.debug("Initializing login page for test setup.");
-  await loginPage.performLogin();
+  await pageObjectManager.loginPage.performLogin();
   logger.debug("Login successful and test setup completed.");
 });
 
-test.afterEach(async ({}) => {
+test.afterEach(async () => {
   logger.info("Finished test");
   logger.debug("Tearing down test context and cleaning up.");
 });
 
-// export default and name export so spec files can use it
+// Export default and named export so spec files can use it
 export default test;
 export const expect = test.expect;

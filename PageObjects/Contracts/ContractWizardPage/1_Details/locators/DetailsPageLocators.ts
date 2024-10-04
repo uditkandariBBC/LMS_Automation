@@ -6,6 +6,7 @@ export const detailsLocator = {
   alternateContractId: "#AlternateIdentifier",
   licensorId: "EntityGUID",
   licenseeId: "CompanyGUID",
+  agentDropdown:".col-sm-4.agentSelect",
   agentId: "AgentGUID",
   dealMemoExpDateId: "#ExpirationDate",
   startDateId: "#StartDate",

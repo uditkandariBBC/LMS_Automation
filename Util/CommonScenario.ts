@@ -1,29 +1,32 @@
-import { test, expect, Page, TestInfo, Locator } from "@playwright/test";
+// Util/Common_Library.ts
+
+import { Page, TestInfo } from "@playwright/test";
 import { promises as fs } from "fs";
 import * as path from "path";
 
 export class CommonScenario {
   private myMap = new Map<string, string>();
-  constructor(public page: Page, public testinfo: TestInfo) {}
+
+  constructor(public page: Page, public testInfo: TestInfo) {}
 
   async takeScreenshot(name: string) {
-    this.testinfo.attach(`${this.testinfo.title}_${name} `, {
+    const screenshotName = `${this.testInfo.title}_${name}`;
+    const screenshotBuffer = await this.page.screenshot({ fullPage: true });
+    await this.testInfo.attach(screenshotName, {
       contentType: "image/png",
-      body: await this.page.screenshot({
-        fullPage: true,
-      }),
+      body: screenshotBuffer,
     });
   }
 
   async hooks() {
-    console.log("hook from the scenario page");
+    console.log("Hook from the CommonScenario class");
   }
 
   setValue(key: string, value: string) {
     this.myMap.set(key, value);
   }
 
-  getValue(key: string) {
+  getValue(key: string): string | undefined {
     return this.myMap.get(key);
   }
 
@@ -55,32 +58,4 @@ export class CommonScenario {
       );
     }
   }
-
-  //Generate Random Number
-
-  //Wait for Page to be loaded
-
-  //Wait for element to be visible
-
-  //Wait for element to be visible with define time limit
-
-  //Method to wait for the element to be clickable clickable
-
-  //Method for Click on WebElement
-
-  //Method to select check box
-
-  //Enter Data in text box
-
-  //Method for keyword operation
-
-  //Scroll till visibility of element
-
-  //Select from Drop down
-
-  //Method to upload files
-
-  //Method to download files
-
-  //Check Element exist or not
 }
