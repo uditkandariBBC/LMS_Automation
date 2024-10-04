@@ -14,6 +14,13 @@ export class ContractWizardPage extends CommonPage {
     super(page, scenario);
   }
 
+  async getContractData(): Promise<Contract> { 
+    const contractData: Contract = await this.scenario.readJsonFile(
+      "ContractData.json"
+    );
+    return contractData;
+  }
+
   /**
    * Checks the heading text of the contract wizard page.
    *

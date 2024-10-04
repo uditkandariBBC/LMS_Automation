@@ -90,7 +90,8 @@ export class LoginPage extends CommonPage {
 
   async fillPassword(password: string) {
     logger.info("Filling in password");
-    await this.fillInputField(logInLocators.userPasswordInput, password);
+    await this.page.locator(logInLocators.userPasswordInput).fill(password);
+    // await this.fillInputField(logInLocators.userPasswordInput, password);
   }
 
   async agreeToTermsOfService() {

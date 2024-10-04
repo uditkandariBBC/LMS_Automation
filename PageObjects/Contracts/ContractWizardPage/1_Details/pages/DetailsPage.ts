@@ -1,10 +1,11 @@
-import { Logger, Page } from "@playwright/test";
+import { Page } from "@playwright/test";
 import { CommonScenario } from "../../../../../Util/Common_Library";
 import {
   Contract,
   ContractWizardPage,
 } from "../../../ContractWizardPage/NewContractWizard/pages/ContractWizard";
 import { detailsLocator } from "../locators/DetailsPageLocators";
+import logger from "../../../../../Util/logger";
 
 export class DetailsPage extends ContractWizardPage {
   constructor(public page: Page, readonly scenario: CommonScenario) {
@@ -12,10 +13,10 @@ export class DetailsPage extends ContractWizardPage {
   }
 
   async fillDataInDetails() {
-    const contractData: Contract = await this.scenario.readJsonFile(
-      "ContractData.json"
-    );
-    const details = contractData.details;
+    // const contractData: Contract = await this.scenario.readJsonFile(
+    //   "ContractData.json"
+    // );
+    const details = (await this.getContractData()).details;
     await this.selectContractType(details.contractType);
     await this.selectContractStage(details.contractStages);
     await this.enterContractNo();
@@ -32,30 +33,30 @@ export class DetailsPage extends ContractWizardPage {
     await this.takeScreenshot("Test screenshot");
   }
 
-  async enterDateUsingPress(selector: string, date: string) {
-    // Focus on the input element
-    await this.page.focus(selector);
+  // async enterDateUsingPress(selector: string, date: string) {
+  //   // Focus on the input element
+  //   await this.page.focus(selector);
 
-    // Clear existing content (if any)
-    await this.page.keyboard.press("Control+A");
-    await this.page.keyboard.press("Backspace");
+  //   // Clear existing content (if any)
+  //   await this.page.keyboard.press("Control+A");
+  //   await this.page.keyboard.press("Backspace");
 
-    // Enter the date using individual key presses
-    for (const char of date) {
-      if (char === "/") {
-        await this.page.keyboard.press("Slash");
-      } else {
-        await this.page.keyboard.press(char);
-      }
-    }
-  }
+  //   // Enter the date using individual key presses
+  //   for (const char of date) {
+  //     if (char === "/") {
+  //       await this.page.keyboard.press("Slash");
+  //     } else {
+  //       await this.page.keyboard.press(char);
+  //     }
+  //   }
+  // }
 
   async selectContractType(selectOptionText: string) {
     await this.selectOptionById(
       detailsLocator.contractTypeId,
       selectOptionText
     );
-    await console.log(`Selected ${selectOptionText} for Contract Type`);
+    logger.info(`Selected ${selectOptionText} for Contract Stage`);
   }
 
   async selectContractStage(selectOptionText: string) {
@@ -73,36 +74,30 @@ export class DetailsPage extends ContractWizardPage {
 
   async selectLicensee(selectOptionText: string) {
     await this.selectOptionById(detailsLocator.licenseeId, selectOptionText);
-    await console.log(`Selected ${selectOptionText} for Licensee`);
+    logger.info(`Selected ${selectOptionText} for Licensee`);
   }
 
   async selectAgent(selectOptionText: string) {
     try {
-      // Locate the dropdown container element
       const dropdownLocator = await this.page.locator(".col-sm-4.agentSelect");
       await dropdownLocator.waitFor();
-      // Check if the dropdown element is visible
       const isVisible = await dropdownLocator.isVisible();
 
       if (isVisible) {
-        // Find the specific option based on text
         const optionLocator = await dropdownLocator.locator("#AgentGUID");
-
-        // Check if the option exists
         const optionCount = await optionLocator.count();
-        console.log(optionCount);
+        logger.info(`Option count: ${optionCount}`);
         if (optionCount > 0) {
-          // Click on the option
           await optionLocator.selectOption(selectOptionText);
-          console.log(`Selected ${selectOptionText} for Agent`);
+          logger.info(`Selected ${selectOptionText} for Agent`);
         } else {
-          console.log(`Option "${selectOptionText}" not found in the dropdown`);
+          logger.warn(`Option "${selectOptionText}" not found in the dropdown`);
         }
       } else {
-        console.log("Dropdown element is not visible");
+        logger.warn("Dropdown element is not visible");
       }
     } catch (error) {
-      console.error("Error selecting agent:", error);
+      logger.error("Error selecting agent:", error);
     }
   }
 
@@ -111,7 +106,7 @@ export class DetailsPage extends ContractWizardPage {
       detailsLocator.contractCurrencyId,
       selectOptionText
     );
-    await console.log(`Selected ${selectOptionText} for Contract Currency`);
+    logger.info(`Selected ${selectOptionText} for Contract Currency`);
   }
 
   async selectExchangeService(selectOptionText: string) {
@@ -119,14 +114,14 @@ export class DetailsPage extends ContractWizardPage {
       detailsLocator.exchangeServiceId,
       selectOptionText
     );
-    await console.log(`Selected ${selectOptionText} for Exchange Service`);
+    logger.info(`Selected ${selectOptionText} for Exchange Service`);
   }
 
   async enterContractNo() {
     const contract = await this.page.locator(detailsLocator.contractNoId);
     const contractNo = await this.generateRandomContractNumber();
     await contract.fill(contractNo);
-    await console.log(`Entered Contract Number: ${contractNo}`);
+    logger.info(`Entered Contract Number: ${contractNo}`);
   }
 
   async enterAlternateContractID(alternateContractIdText: string) {
@@ -134,32 +129,30 @@ export class DetailsPage extends ContractWizardPage {
       detailsLocator.alternateContractId
     );
     await alternateContractID.fill(alternateContractIdText);
-    await console.log(
-      `Entered Alternate Contract ID: ${alternateContractIdText}`
-    );
+    logger.info(`Entered Alternate Contract ID: ${alternateContractIdText}`);
   }
 
   async dealMemoExpirationDate(date: string) {
     await this.enterDateUsingPress(detailsLocator.dealMemoExpDateId, date);
     await this.page.locator(detailsLocator.alternateContractId).click();
-    await console.log(`Entered Memo Expiration Date: ${date}`);
+    logger.info(`Entered Memo Expiration Date: ${date}`);
   }
-
   async enterStartDate(startDateText: string) {
     await this.enterDateUsingPress(detailsLocator.startDateId, startDateText);
+    // await this.enterDateUsingPress(detailsLocator.startDateId, startDateText);
     await this.page.locator(detailsLocator.alternateContractId).click();
-    await console.log(`Entered Start Date: ${startDateText}`);
+    logger.info(`Entered Start Date: ${startDateText}`);
   }
 
   async enterEndDate(endDateText: string) {
     await this.enterDateUsingPress(detailsLocator.endDateId, endDateText);
     await this.page.locator(detailsLocator.alternateContractId).click();
-    await console.log(`Entered End Date: ${endDateText}`);
+    logger.info(`Entered End Date: ${endDateText}`);
   }
-  
+
   async enterSellOffDays(sellOffDaysText: string) {
     const sellOffDays = await this.page.locator(detailsLocator.sellOffDaysId);
     await sellOffDays.fill(sellOffDaysText);
-    await console.log(`Entered Sell-Off Days: ${sellOffDaysText}`);
+    logger.info(`Entered Sell-Off Days: ${sellOffDaysText}`);
   }
 }

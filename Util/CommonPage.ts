@@ -27,70 +27,112 @@ export class CommonPage {
 
   //Method to wait for page to load
   async waitForPageToLoad() {
-    try {
-      logger.info("Waiting for the page to load.");
-      await this.page.waitForLoadState("domcontentloaded");
-      logger.info("Page loaded successfully.");
-    } catch (error) {
-      logger.error(`Failed to load page: ${error.message}`);
-      throw new ActionFailedException("Failed to load the page.");
-    }
+    await this.retryAction(async () => {
+      try {
+        logger.info("Waiting for the page to load.");
+        await this.page.waitForLoadState("domcontentloaded");
+        logger.info("Page loaded successfully.");
+      } catch (error) {
+        logger.error(`Failed to load page: ${error.message}`);
+        throw error;
+      }
+    });
   }
 
   //Method to wait for element to be visible
   async waitForElementToBeVisible(selector: string, timeout: number = 10000) {
-    try {
-      logger.info(
-        `Waiting for element "${selector}" to be visible with timeout ${timeout}ms.`
-      );
-      const element = await this.page.locator(selector);
-      await element.waitFor({ timeout });
-      logger.info(`Element "${selector}" is visible.`);
-    } catch (error) {
-      logger.error(
-        `Timeout while waiting for element "${selector}" to be visible.`
-      );
-      throw new TimeoutException(
-        `Element "${selector}" did not become visible within ${timeout}ms.`
-      );
-    }
-  }
-
-  //Method to wait for element to be hidden
-  async waitForElementToBeHidden(selector: string, timeout: number = 5000) {
-    await this.page.waitForSelector(selector, {
-      state: "hidden",
-      timeout,
+    await this.retryAction(async () => {
+      try {
+        logger.info(
+          `Waiting for element "${selector}" to be visible with timeout ${timeout}ms.`
+        );
+        const element = await this.page.locator(selector);
+        await element.waitFor({ timeout });
+        logger.info(`Element "${selector}" is visible.`);
+      } catch (error) {
+        logger.error(
+          `Timeout while waiting for element "${selector}" to be visible.`
+        );
+        throw new TimeoutException(
+          `Element "${selector}" did not become visible within ${timeout}ms.`
+        );
+      }
     });
   }
-  //Method to click the element
+
+  // //Method to wait for element to be hidden
+  // async waitForElementToBeHidden(selector: string, timeout: number = 5000) {
+  //   await this.page.waitForSelector(selector, {
+  //     state: "hidden",
+  //     timeout,
+  //   });
+  // }
+  // //Method to click the element
+  // async clickElement(selector: string, actionDescription?: string) {
+  //   try {
+  //     const description = actionDescription || `element "${selector}"`;
+  //     logger.info(`Attempting to click on ${description}.`);
+  //     await this.waitForElementToBeVisible(selector);
+  //     await this.page.locator(selector).click();
+  //     logger.info(`Clicked on ${description} successfully.`);
+  //   } catch (error) {
+  //     const description = actionDescription || `element "${selector}"`;
+  //     logger.error(`Error while clicking on ${description}: ${error.message}`);
+  //     throw new ActionFailedException(`Failed to click on ${description}.`);
+  //   }
+  // }
+
   async clickElement(selector: string, actionDescription?: string) {
-    try {
-      const description = actionDescription || `element "${selector}"`;
-      logger.info(`Attempting to click on ${description}.`);
-      await this.waitForElementToBeVisible(selector);
-      await this.page.locator(selector).click();
-      logger.info(`Clicked on ${description} successfully.`);
-    } catch (error) {
-      const description = actionDescription || `element "${selector}"`;
-      logger.error(`Error while clicking on ${description}: ${error.message}`);
-      throw new ActionFailedException(`Failed to click on ${description}.`);
+    const description = actionDescription || `element "${selector}"`;
+
+    await this.retryAction(async () => {
+      try {
+        logger.info(`Attempting to click on ${description}.`);
+        await this.waitForElementToBeVisible(selector);
+        await this.page.locator(selector).click();
+        logger.info(`Clicked on ${description} successfully.`);
+      } catch (error) {
+        logger.error(
+          `Error while clicking on ${description}: ${error.message}`
+        );
+        throw error; // Re-throw error to trigger retry
+      }
+    });
+  }
+
+  async enterDateUsingPress(selector: string, date: string) {
+    // Focus on the input element
+    await this.page.focus(selector);
+
+    // Clear existing content (if any)
+    await this.page.keyboard.press("Control+A");
+    await this.page.keyboard.press("Backspace");
+
+    // Enter the date using individual key presses
+    for (const char of date) {
+      if (char === "/") {
+        await this.page.keyboard.press("Slash");
+      } else {
+        await this.page.keyboard.press(char);
+      }
     }
   }
 
   async fillInputField(selector: string, value: string) {
-    try {
-      logger.info(`Filling input field "${selector}" with value "${value}".`);
-      await this.page.locator(selector).fill(value);
-      logger.info(`Filled input field "${selector}" successfully.`);
-    } catch (error) {
-      logger.error(
-        `Error while filling input field "${selector}": ${error.message}`
-      );
-      throw new ActionFailedException(
-        `Failed to fill input field "${selector}".`
-      );
-    }
+    await this.retryAction(async () => {
+      try {
+        logger.info(`Filling input field "${selector}" with value "${value}".`);
+        await this.page.locator(selector).fill(value);
+        logger.info(`Filled input field "${selector}" successfully.`);
+      } catch (error) {
+        logger.error(
+          `Error while filling input field "${selector}": ${error.message}`
+        );
+        throw new ActionFailedException(
+          `Failed to fill input field "${selector}".`
+        );
+      }
+    });
   }
 
   async getElementText(selector: string): Promise<string> {
@@ -139,18 +181,20 @@ export class CommonPage {
   }
 
   async hoverOverElement(selector: string) {
-    try {
-      logger.info(`Hovering over element "${selector}".`);
-      await this.page.locator(selector).hover();
-      logger.info(`Hovered over element "${selector}" successfully.`);
-    } catch (error) {
-      logger.error(
-        `Error while hovering over element "${selector}": ${error.message}`
-      );
-      throw new ActionFailedException(
-        `Failed to hover over element "${selector}".`
-      );
-    }
+    await this.retryAction(async () => {
+      try {
+        logger.info(`Hovering over element "${selector}".`);
+        await this.page.locator(selector).hover();
+        logger.info(`Hovered over element "${selector}" successfully.`);
+      } catch (error) {
+        logger.error(
+          `Error while hovering over element "${selector}": ${error.message}`
+        );
+        throw new ActionFailedException(
+          `Failed to hover over element "${selector}".`
+        );
+      }
+    });
   }
 
   async isCheckboxChecked(selector: string): Promise<boolean> {
@@ -167,57 +211,98 @@ export class CommonPage {
   }
 
   async checkCheckbox(selector: string) {
-    try {
-      const checkbox = await this.page.locator(selector);
-      await checkbox.waitFor({ state: "visible" });
-      if (!(await checkbox.isChecked())) {
-        await checkbox.check();
-        logger.info(`Checkbox "${selector}" checked successfully.`);
+    await this.retryAction(async () => {
+      try {
+        const checkbox = await this.page.locator(selector);
+        await checkbox.waitFor({ state: "visible" });
+        if (!(await checkbox.isChecked())) {
+          await checkbox.check();
+          logger.info(`Checkbox "${selector}" checked successfully.`);
+        }
+      } catch (error) {
+        logger.error(
+          `Error while checking checkbox "${selector}": ${error.message}`
+        );
+        throw new ActionFailedException(
+          `Failed to check checkbox "${selector}".`
+        );
       }
-    } catch (error) {
-      logger.error(
-        `Error while checking checkbox "${selector}": ${error.message}`
-      );
-      throw new ActionFailedException(
-        `Failed to check checkbox "${selector}".`
-      );
-    }
+    });
   }
 
   async uncheckCheckbox(selector: string) {
-    try {
-      const checkbox = this.page.locator(selector);
-      if (await checkbox.isChecked()) {
-        await checkbox.uncheck();
-        logger.info(`Checkbox "${selector}" unchecked successfully.`);
+    await this.retryAction(async () => {
+      try {
+        const checkbox = this.page.locator(selector);
+        if (await checkbox.isChecked()) {
+          await checkbox.uncheck();
+          logger.info(`Checkbox "${selector}" unchecked successfully.`);
+        }
+      } catch (error) {
+        logger.error(
+          `Error while unchecking checkbox "${selector}": ${error.message}`
+        );
+        throw new ActionFailedException(
+          `Failed to uncheck checkbox "${selector}".`
+        );
       }
-    } catch (error) {
-      logger.error(
-        `Error while unchecking checkbox "${selector}": ${error.message}`
-      );
-      throw new ActionFailedException(
-        `Failed to uncheck checkbox "${selector}".`
-      );
-    }
+    });
   }
 
   async selectOptionById(
     selectId: string,
     selectOptionText: string
   ): Promise<void> {
-    try {
-      const element = await this.page.locator(`#${selectId}`);
-      await element.waitFor();
-      await element.selectOption({ label: `${selectOptionText}` });
-      logger.info(`Option "${selectOptionText}" selected successfully.`);
-    } catch (error) {
-      logger.error(
-        `Error while selecting option from dropdown "${selectId}": ${error.message}`
-      );
-      throw new ActionFailedException(
-        `Failed to select option "${selectOptionText}" from dropdown "${selectId}".`
-      );
+    await this.retryAction(async () => {
+      try {
+        const element = await this.page.locator(`#${selectId}`);
+        await element.waitFor();
+        await element.selectOption({ label: `${selectOptionText}` });
+        logger.info(`Option "${selectOptionText}" selected successfully.`);
+      } catch (error) {
+        logger.error(
+          `Error while selecting option from dropdown "${selectId}": ${error.message}`
+        );
+        throw new ActionFailedException(
+          `Failed to select option "${selectOptionText}" from dropdown "${selectId}".`
+        );
+      }
+    });
+  }
+
+  async retryAction(
+    action: () => Promise<void>,
+    retries: number = 3,
+    delay: number = 1000
+  ) {
+    let attempt = 0;
+
+    while (attempt < retries) {
+      try {
+        await action();
+        // If action succeeds, exit the loop
+        return;
+      } catch (error) {
+        logger.error(
+          `Action failed on attempt ${attempt + 1}: ${error.message}`
+        );
+
+        // If maximum retries reached, throw the error
+        if (attempt === retries - 1) {
+          throw new ActionFailedException(
+            `Action failed after ${retries} attempts.`
+          );
+        }
+
+        // Increment attempt count and add delay before retry
+        attempt++;
+        await this.page.waitForTimeout(delay); // Wait for `delay` ms before retrying
+      }
     }
+  }
+
+  async selectMultipleCheckbox() { 
+    
   }
 
   async generateRandomContractNumber(): Promise<string> {
