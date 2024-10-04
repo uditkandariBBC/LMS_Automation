@@ -1,7 +1,9 @@
+// Exceptions/CustomExceptions.ts
+
 export class BaseException extends Error {
   constructor(message: string) {
     super(message);
-    this.name = this.constructor.name;
+    this.name = new.target.name; // Use new.target.name for better minification support
     Error.captureStackTrace(this, this.constructor);
   }
 }
@@ -12,10 +14,9 @@ export class ActionFailedException extends BaseException {
   }
 }
 
-export class ElementNotFoundException extends Error {
+export class ElementNotFoundException extends BaseException {
   constructor(message: string) {
     super(message);
-    this.name = "ElementNotFoundException";
   }
 }
 
@@ -31,9 +32,8 @@ export class TimeoutException extends BaseException {
   }
 }
 
-export class ValidationException extends Error {
+export class ValidationException extends BaseException {
   constructor(message: string) {
     super(message);
-    this.name = "ValidationException";
   }
 }

@@ -1,6 +1,8 @@
+// PageObjects/Contracts/ContractWizardPage/NewContractWizard/pages/ContractWizard.ts
+
 import { Page } from "@playwright/test";
 import { CommonPage } from "../../../../../Util/CommonPage";
-import { CommonScenario } from "../../../../../Util/Common_Library";
+import { CommonScenario } from "../../../../../Util/CommonScenario";
 import { contractWizardLocators as cwLocator } from "../locators/NewContractWizardLocators";
 import logger from "../../../../../Util/logger";
 import {
@@ -14,32 +16,23 @@ export class ContractWizardPage extends CommonPage {
     super(page, scenario);
   }
 
-  async getContractData(): Promise<Contract> { 
+  // Get contract data from JSON file
+  async getContractData(): Promise<Contract> {
+    logger.info("Getting contract data from JSON file");
     const contractData: Contract = await this.scenario.readJsonFile(
       "ContractData.json"
     );
+    logger.info("Contract data retrieved successfully");
     return contractData;
   }
 
-  /**
-   * Checks the heading text of the contract wizard page.
-   *
-   * This method logs the process of checking the heading text, retrieves the text content
-   * of the heading element, and returns it. If the heading element is not found or its text
-   * content is empty, an `ElementNotFoundException` is thrown. If any other error occurs
-   * during the process, an `ActionFailedException` is thrown.
-   *
-   * @returns {Promise<string>} The text content of the heading element.
-   *
-   * @throws {ElementNotFoundException} If the heading element is not found or its text content is empty.
-   * @throws {ActionFailedException} If any other error occurs during the process.
-   */
-  async checkHeadingText() {
+  // Check the heading text of the contract wizard page
+  async checkHeadingText(): Promise<string> {
     try {
       logger.info("Checking heading text");
-      const headingText = await this.page
-        .locator(cwLocator.contractWizardHeading)
-        .textContent();
+      const headingLocator = this.page.locator(cwLocator.contractWizardHeading);
+      await headingLocator.waitFor({ state: "visible", timeout: 5000 });
+      const headingText = await headingLocator.textContent();
 
       if (!headingText) {
         throw new ElementNotFoundException(
@@ -49,33 +42,13 @@ export class ContractWizardPage extends CommonPage {
 
       logger.info(`Heading text: ${headingText}`);
       return headingText;
-    } catch (error) {
+    } catch (error: any) {
       logger.error(`Error checking heading text: ${error.message}`);
       throw new ActionFailedException("Failed to check heading text.");
     }
   }
 
-  /**
-   * Navigates to a specified section within the Contract Wizard.
-   *
-   * @param section - The name of the section to navigate to. Valid sections include:
-   * - "details"
-   * - "rights"
-   * - "definitions"
-   * - "samples"
-   * - "agent"
-   * - "payments"
-   * - "royalty"
-   * - "tiers"
-   * - "overrides"
-   * - "reporting"
-   * - "contacts"
-   * - "misc"
-   * - "finish"
-   *
-   * @throws {ValidationException} If the specified section is not defined in the navigation map.
-   * @throws {ActionFailedException} If navigation to the specified section fails.
-   */
+  // Navigate to a specified section within the Contract Wizard
   async navigateTo(section: string) {
     const navigationMap: { [key: string]: string } = {
       details: cwLocator.navigation.details,
@@ -96,15 +69,20 @@ export class ContractWizardPage extends CommonPage {
     const normalizedSection = section.toLowerCase();
 
     if (!navigationMap[normalizedSection]) {
+      logger.error(`Navigation section "${section}" is not defined.`);
       throw new ValidationException(
         `Navigation section "${section}" is not defined.`
       );
     }
 
     try {
-      logger.info(`Navigating to ${section} section.`);
-      await this.clickElement(navigationMap[normalizedSection], section);
-    } catch (error) {
+      logger.info(`Navigating to "${section}" section.`);
+      await this.clickElement(
+        navigationMap[normalizedSection],
+        `Navigate to ${section} section`
+      );
+      logger.info(`Successfully navigated to "${section}" section.`);
+    } catch (error: any) {
       logger.error(
         `Failed to navigate to section "${section}": ${error.message}`
       );

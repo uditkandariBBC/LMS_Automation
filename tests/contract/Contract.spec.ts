@@ -1,24 +1,22 @@
-import test, { expect } from "../../Base/BaseTest";
+// tests/contract/Contract.spec.ts
+
+import test from "../../Base/BaseTest";
+
 test.describe("Contract Tests", () => {
   test("Test Contract Creation Functionality", async ({
-    page,
-    dashboardPage,
-    contractPage,
-    detailsPage,
+    pageObjectManager,
   }) => {
+    const { dashboardPage, contractPage, detailsPage } = pageObjectManager;
+
     await dashboardPage.navigateToContractPage();
     await contractPage.startNewContract();
     await detailsPage.fillDataInDetails();
   });
 
-  test("Test Edit contract Functionality", async ({
-    page,
-    dashboardPage,
-    contractPage,
-    detailsPage,
-    termsPage,
-    rightsPage,
-  }) => {
+  test("Test Edit Contract Functionality", async ({ pageObjectManager }) => {
+    const { dashboardPage, contractPage, termsPage, rightsPage } =
+      pageObjectManager;
+
     await dashboardPage.navigateToContractPage();
     await contractPage.searchContract("md00085");
     await termsPage.editInContractWizard("md00085");

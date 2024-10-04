@@ -1,5 +1,5 @@
 import { Page } from "@playwright/test";
-import { CommonScenario } from "../../../../../Util/Common_Library";
+import { CommonScenario } from "../../../../../Util/CommonScenario";
 import { ContractWizardPage } from "../../NewContractWizard/pages/ContractWizard";
 import logger from "../../../../../Util/logger";
 
