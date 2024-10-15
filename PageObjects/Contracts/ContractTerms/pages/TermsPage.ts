@@ -6,6 +6,7 @@ import { CommonScenario } from "../../../../Util/CommonScenario";
 import { termsPageLocator } from "../locators/ContractTermsPageLocators";
 import logger from "../../../../Util/logger";
 import { ValidationException } from "../../../../Exceptions/CustomExceptions";
+import { ManufacturerPopup } from "./ManfacturerPopup";
 
 export class TermsPage extends CommonPage {
   constructor(public page: Page, readonly scenario: CommonScenario) {
@@ -13,6 +14,13 @@ export class TermsPage extends CommonPage {
   }
 
   // Validate that the Contract Terms page is loaded for a specific contract number
+  /**
+   * Validates that the Contract Terms page has loaded by checking if the heading contains the specified contract number.
+   *
+   * @param contractNumber - The contract number to validate in the heading.
+   * @returns A promise that resolves to a boolean indicating whether the contract number is found in the heading.
+   * @throws ValidationException if the contract number is not found in the heading.
+   */
   async validateContractTermsPageLoaded(
     contractNumber: string
   ): Promise<boolean> {
@@ -64,5 +72,20 @@ export class TermsPage extends CommonPage {
     await this.clickElement(termsPageLocator.editContract, "Edit Contract");
 
     logger.info("Clicked on 'Edit in Contract Wizard'");
+  }
+
+  // async getContractNumber() {
+  //   return await this.getElementText(termsPageLocator.contractNumber);
+  // }
+
+// Manufacturer Functionality
+
+  async manufacturerFun() {
+    await this.clickOnManufacturer();
+
+  }
+
+  async clickOnManufacturer() {
+    await this.clickElement(termsPageLocator.manufacturer, "Manufacturers");
   }
 }

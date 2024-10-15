@@ -28,6 +28,7 @@ export class ContractPage extends CommonPage {
     logger.info(`Searching for contract with number: ${contractNumber}`);
     await this.fillContractNumber(contractNumber);
     await this.clickSearchButton();
+    await this.waitForLoadingToFinish();
     await this.waitForSearchResults();
     await this.selectContract(contractNumber);
     logger.info(`Contract with number: ${contractNumber} selected`);
@@ -38,6 +39,8 @@ export class ContractPage extends CommonPage {
     logger.info("Clicking 'Search' button");
     await this.clickElement(contractPageLocator.searchButton);
   }
+
+  
 
   // Fill the contract number in the search field
   private async fillContractNumber(contractNumber: string) {
@@ -61,12 +64,23 @@ export class ContractPage extends CommonPage {
   private async selectContract(contractNumber: string) {
     let foundContract: boolean = false;
     logger.info(`Selecting contract with number: ${contractNumber}`);
-    let table = this.page.locator(contractPageLocator.searchResultTableId);
+
+    let table = await this.page.locator(
+      contractPageLocator.searchResultTableId
+    );
+    await table.waitFor({ state: "visible", timeout: 10000 });
+
     const rows = table.locator("tbody tr");
-    for (const row of await rows.all()) {
+    const allRows = await rows.all();
+
+    logger.info(`Found ${allRows.length} rows in search results`);
+
+    for (const row of allRows) {
       const foundContractNumber = await row
         .locator('//td[@class="ContractNumber"]')
         .innerText();
+
+      logger.info(`Checking contract number: ${foundContractNumber}`);
 
       if (foundContractNumber.toLowerCase() === contractNumber.toLowerCase()) {
         logger.info(

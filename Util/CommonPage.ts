@@ -70,7 +70,13 @@ export class CommonPage {
       try {
         logger.info(`Attempting to click on ${description}.`);
         await this.waitForElementToBeVisible(selector);
-        await this.page.locator(selector).click();
+        const element = this.page.locator(selector);
+        if ((await element.count()) === 0) {
+          throw new SelectorNotFoundException(
+            `Element "${selector}" not found.`
+          );
+        }
+        await element.click();
         logger.info(`Clicked on ${description} successfully.`);
       } catch (error: any) {
         logger.error(
@@ -274,6 +280,13 @@ export class CommonPage {
     }
   }
 
+  async enterTextUsingPress(selector: string, text: string) {
+    await this.page.focus(selector);
+    for (const textChar of text) {
+      await this.page.keyboard.press(textChar);
+    }
+  }
+
   async enterDateUsingPress(selector: string, date: string) {
     // Focus on the input element
     await this.page.focus(selector);
@@ -290,6 +303,15 @@ export class CommonPage {
         await this.page.keyboard.press(char);
       }
     }
+  }
+
+  // Wait for the loading indicator to disappear
+  async waitForLoadingToFinish() {
+    logger.info("Waiting for loading indicator to disappear");
+    await this.page.waitForSelector(".loadinggif", {
+      state: "hidden",
+      timeout: 10000,
+    });
   }
 
   // Method to generate a random contract number
