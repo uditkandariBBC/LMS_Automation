@@ -1,0 +1,33 @@
+import { test, expect } from '@playwright/test';
+
+test('test', async ({ page }) => {
+  await page.goto('https://bbcwwtest-rm-sandbox512.uat.mymediabox.com/login-form.html?_rtnlink=/rm');
+  await page.getByLabel('Email').click();
+  await page.getByLabel('Email').fill('udit.kandari@bbc.com');
+  await page.getByLabel('Email').press('Tab');
+  await page.getByLabel('Password').fill('Tmittmif#@5248360');
+  await page.getByLabel('I Agree to the Terms of').check();
+  await page.getByRole('button', { name: 'Submit' }).click();
+  await page.getByRole('link', { name: ' Contracts' }).click();
+  await page.getByPlaceholder('Search...').click();
+  await page.getByPlaceholder('Search...').fill('md0085');
+  await page.getByPlaceholder('Search...').click();
+  await page.getByPlaceholder('Search...').click();
+  await page.getByPlaceholder('Search...').click();
+  await page.getByPlaceholder('Search...').fill('md00085');
+  await page.goto('https://bbcwwtest-rm-sandbox512.uat.mymediabox.com/rm/Licensor/Contracts/Details/498a1d24-9ac5-4f9c-8b88-30cc582d3447/');
+  await page.getByRole('link', { name: 'Manufacturers', exact: true }).click();
+  await page.getByRole('link', { name: 'Add' }).click();
+  await page.getByRole('link', { name: 'Please Select' }).click();
+  await page.locator('#select2-drop-mask').click();
+  await page.locator('#ManufacturerEditModal').click();
+  await page.getByRole('link', { name: 'Please Select' }).click();
+  await page.locator('#select2-result-label-4621').click();
+  await page.locator('#MAReceived').check();
+  await page.locator('#divMAReceivedDate i').nth(1).click();
+  await page.getByRole('cell', { name: '17' }).click();
+  await page.locator('#Notes').click();
+  await page.locator('#Notes').fill('MA Received');
+  await page.locator('#ManufacturerEditSave').click();
+  await page.locator('#ManufacturerListCancel').click();
+});

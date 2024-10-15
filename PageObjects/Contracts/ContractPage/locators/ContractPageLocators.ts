@@ -1,3 +1,5 @@
+
+
 export const contractPageLocator = {
   startContractWizard: "//a[@data-content='Add Contract']",
   searchTextBox: "//input[@name='SearchExpr']",

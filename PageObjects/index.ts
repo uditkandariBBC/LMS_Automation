@@ -10,3 +10,5 @@ export { TermsPage } from "./Contracts/ContractTerms/pages/TermsPage";
 export { ContractWizardPage } from "./Contracts/ContractWizardPage/NewContractWizard/pages/ContractWizard";
 export { DetailsPage } from "./Contracts/ContractWizardPage/1_Details/pages/DetailsPage";
 export { RightsPage } from "./Contracts/ContractWizardPage/2_Rights/pages/RightsPage";
+
+export { ManufacturerPopup } from "./Contracts/ContractTerms/pages/ManfacturerPopup";
