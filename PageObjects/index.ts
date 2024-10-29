@@ -5,10 +5,10 @@ export { LoginPage } from "./LoginPage/pages/LoginPage";
 export { DashboardPage } from "./Dashboard/pages/DashboardPage";
 
 export { ContractPage } from "./Contracts/ContractPage/pages/ContractPage";
-export { TermsPage } from "./Contracts/ContractTerms/pages/TermsPage";
+export { TermsPage } from "./Contracts/ContractTerms/Terms/pages/TermsPage";
 
 export { ContractWizardPage } from "./Contracts/ContractWizardPage/NewContractWizard/pages/ContractWizard";
 export { DetailsPage } from "./Contracts/ContractWizardPage/1_Details/pages/DetailsPage";
 export { RightsPage } from "./Contracts/ContractWizardPage/2_Rights/pages/RightsPage";
 
-export { ManufacturerPopup } from "./Contracts/ContractTerms/pages/ManfacturerPopup";
+export { ManufacturerPopup } from "./Contracts/ContractTerms/ManufacturerPopup/pages/ManfacturerPopup";

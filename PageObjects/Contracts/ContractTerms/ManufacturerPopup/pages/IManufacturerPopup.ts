@@ -10,11 +10,11 @@ export interface IManufacturerPopup {
   deleteManufacturer(): Promise<void>;
   searchManufacturer(): Promise<void>;
   checkContractNo(contractNo: string): Promise<void>;
-  selectManufacturerFromDropdown(): Promise<void>;
+  selectManufacturerFromDropdown(manufacturer: string): Promise<void>;
   getStatus(): Promise<string>;
-  checkStats(): Promise<void>;
+  verifyStats(status: string): Promise<boolean>;
   selectMAReceived(): Promise<void>;
   unselectMAReceived(): Promise<void>;
-  fillMAReceivedDate(): Promise<void>;
-  fillNotes(): Promise<void>;
+  fillMAReceivedDate(date: string): Promise<void>;
+  fillNotes(note: string): Promise<void>;
 }
