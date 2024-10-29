@@ -14,6 +14,10 @@ test.describe("Manufacturer Tests", () => {
     await contractPage.searchContract("md00085");
     //await termsPage.manufacturerFun();
     await termsPage.clickOnManufacturer();
-    await manufacturerPopup.addManufacturer("md00085", "4M SLR");
+    await manufacturerPopup.addManufacturer(
+      "md00085",
+      "Premium Shirts S de RL de CV Sucursal",
+      "4M SLR"
+    );
   });
 });

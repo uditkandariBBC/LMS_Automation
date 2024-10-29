@@ -1,12 +1,11 @@
 // PageObjects/Contracts/ContractTerms/pages/ContractTermsPage.ts
 
 import { Page } from "@playwright/test";
-import { CommonPage } from "../../../../Util/CommonPage";
-import { CommonScenario } from "../../../../Util/CommonScenario";
+import { CommonPage } from "../../../../../Util/CommonPage";
+import { CommonScenario } from "../../../../../Util/CommonScenario";
 import { termsPageLocator } from "../locators/ContractTermsPageLocators";
-import logger from "../../../../Util/logger";
-import { ValidationException } from "../../../../Exceptions/CustomExceptions";
-import { ManufacturerPopup } from "./ManfacturerPopup";
+import logger from "../../../../../Util/logger";
+import { ValidationException } from "../../../../../Exceptions/CustomExceptions";
 
 export class TermsPage extends CommonPage {
   constructor(public page: Page, readonly scenario: CommonScenario) {
@@ -78,11 +77,10 @@ export class TermsPage extends CommonPage {
   //   return await this.getElementText(termsPageLocator.contractNumber);
   // }
 
-// Manufacturer Functionality
+  // Manufacturer Functionality
 
   async manufacturerFun() {
     await this.clickOnManufacturer();
-
   }
 
   async clickOnManufacturer() {
